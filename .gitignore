@@ -1,0 +1,54 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+celerybeat-schedule
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.eslintcache
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.sqlite3
+db.sqlite3
+*.log
+
+# Office temp files
+~$*
+
+# Local working material (not part of the product)
+_local/
+*.pdf
+
+# Local uploads / generated media
+media/
+staticfiles/
