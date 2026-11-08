@@ -1,7 +1,14 @@
 # Alcance por etapas — Kintsugi Studio Web
 
-> Documento de trabajo para ordenar el alcance solicitado (web + reservas + pagos + CRM + ERP).
+> Documento de trabajo para ordenar el alcance solicitado (web + reservas + CRM + ERP).
 > No es una propuesta comercial todavía; sirve para decidir qué entra primero.
+>
+> **Actualización (7 de noviembre de 2026):** el alcance confirmado está en el
+> [README](../README.md) y en [`RESPUESTAS-CLIENTE.md`](RESPUESTAS-CLIENTE.md). En caso de
+> conflicto, prevalecen esos documentos. Fases definitivas:
+> **1)** sitio, catálogo, reserva real, agenda, CRM e inventario;
+> **2)** recordatorios, caja, gastos, reportes, comisiones, tarjetas, proveedores y cuentas por pagar;
+> **3)** pagos en línea, confirmación automática, facturación electrónica, multi-sede y contabilidad.
 
 ## 1. Lectura del pedido
 

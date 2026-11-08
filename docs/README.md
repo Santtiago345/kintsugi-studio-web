@@ -2,10 +2,11 @@
 
 | Documento | Contenido |
 |---|---|
+| [Respuestas del cliente](RESPUESTAS-CLIENTE.md) | Datos confirmados, alcance, reglas de negocio, roles, finanzas, MoSCoW y pendientes |
 | [Brief del proyecto](PROYECTO-KINTSUGI.md) | Negocio, identidad de marca, alcance, actores, reglas de negocio, supuestos y riesgos |
-| [Cuestionario para el cliente](CUESTIONARIO-CLIENTE.md) | Preguntas de descubrimiento para cerrar alcance, pagos, CRM y ERP |
+| [Cuestionario para el cliente](CUESTIONARIO-CLIENTE.md) | Preguntas de descubrimiento que originaron las respuestas |
 | [Alcance por etapas](ALCANCE-MVP.md) | MVP, fases 2 y 3, fuera de alcance, decisiones y criterios de aceptación |
-| [Decisión de stack](DECISION-STACK.md) | Alternativas técnicas evaluadas, matriz de decisión, recomendación, costos y configuración propuesta |
+| [Decisión de stack](DECISION-STACK.md) | Alternativas técnicas evaluadas, matriz de decisión, decisión final, costos y configuración propuesta |
 
 ## Documentos previstos
 

@@ -1,7 +1,9 @@
 # Brief del proyecto — Kintsugi Studio Web
 
 > Fuente principal: manual de identidad visual de Kintsugi Studio (documento del cliente).
-> Estado: **descubrimiento**. Todo lo marcado como supuesto debe validarse con el cliente.
+> Estado: **descubrimiento cerrado**. Las respuestas confirmadas están en
+> [`RESPUESTAS-CLIENTE.md`](RESPUESTAS-CLIENTE.md); si hay conflicto, prevalece ese documento
+> y el [README](../README.md). Este brief conserva el contexto y los supuestos iniciales.
 
 ## 1. El negocio
 
