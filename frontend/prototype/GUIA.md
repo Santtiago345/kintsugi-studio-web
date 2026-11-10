@@ -47,6 +47,6 @@ Las capturas de referencia están en [`docs/assets/ui/`](../../docs/assets/ui/).
 
 ## Referencias
 
-- [`docs/DISENO-UI.md`](../../docs/DISENO-UI.md) — sistema de diseño, principios UX y
+- [`docs/design/DISENO-UI.md`](../../docs/design/DISENO-UI.md) — sistema de diseño, principios UX y
   especificación de pantallas.
-- [`docs/DATOS-EXCEL.md`](../../docs/DATOS-EXCEL.md) — catálogo, agenda y reglas operativas.
+- [`docs/operations/DATOS-EXCEL.md`](../../docs/operations/DATOS-EXCEL.md) — catálogo, agenda y reglas operativas.

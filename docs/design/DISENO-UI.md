@@ -1,8 +1,8 @@
 # Diseño de interfaz — Kintsugi Studio
 
 > **Estado:** prototipo de diseño navegable, previo a la implementación en Next.js.
-> **Prototipo:** [`frontend/prototype/index.html`](../frontend/prototype/index.html).
-> **Capturas:** [`docs/assets/ui/`](assets/ui/).
+> **Prototipo:** [`frontend/prototype/index.html`](../../frontend/prototype/index.html).
+> **Capturas:** [`docs/assets/ui/`](../assets/ui/).
 > **Última actualización:** 10 de noviembre de 2026.
 
 Este documento define el sistema visual, los principios de experiencia de usuario y la
@@ -154,7 +154,7 @@ redes y políticas.
 **Decisión UX:** Jakob (página de marca conocida), Hick (un CTA), Pareto (servicios más
 pedidos), carga cognitiva (una idea por sección).
 
-![Inicio](assets/ui/home.png)
+![Inicio](../assets/ui/home.png)
 
 ### 4.2 Servicios
 
@@ -169,7 +169,7 @@ reserva; banda de asesoría por WhatsApp.
 **Decisión UX:** Hick (categorías en lugar de 72 servicios), Jakob (grilla de comercio
 electrónico), carga cognitiva (precio y duración antes de abrir el detalle).
 
-![Servicios](assets/ui/services.png)
+![Servicios](../assets/ui/services.png)
 
 ### 4.3 Reserva — paso 1: servicio y profesional
 
@@ -184,7 +184,7 @@ resumen persistente con servicio, profesional, duración, precio, abono y total.
 **Decisión UX:** Hick (una categoría abierta, opción “cualquiera”), carga cognitiva (resumen
 repetido), Jakob (wizard), Pareto (reserva como invitada).
 
-![Reserva paso 1](assets/ui/booking-service.png)
+![Reserva paso 1](../assets/ui/booking-service.png)
 
 ### 4.4 Reserva — paso 2: fecha y hora
 
@@ -200,7 +200,7 @@ hora, duración, abono y total.
 pantalla), Jakob (patrón calendario + slots), prevención de errores (retención y slots
 deshabilitados).
 
-![Reserva paso 2](assets/ui/booking-datetime.png)
+![Reserva paso 2](../assets/ui/booking-datetime.png)
 
 ### 4.5 Reserva — paso 3: datos y confirmación
 
@@ -216,7 +216,7 @@ pago.
 **Decisión UX:** carga cognitiva (un formulario en dos columnas), prevención de errores
 (duplicado y consentimiento), Jakob (resumen de checkout), Pareto (sin crear cuenta).
 
-![Reserva paso 3](assets/ui/booking-confirm.png)
+![Reserva paso 3](../assets/ui/booking-confirm.png)
 
 ### 4.6 Agenda administrativa
 
@@ -232,7 +232,7 @@ día/semana, filtro por profesional y estado; grilla con una columna por profesi
 **Decisión UX:** Jakob (panel y grilla conocidos), Hick (cinco secciones, vista de día), carga
 cognitiva (KPIs antes del detalle), Pareto (cifras y acciones del día arriba).
 
-![Agenda administrativa](assets/ui/admin-agenda.png)
+![Agenda administrativa](../assets/ui/admin-agenda.png)
 
 ### 4.7 Ficha de clienta
 
@@ -248,7 +248,7 @@ Fotos, Fórmulas, Notas), línea de tiempo, última fórmula, nota de la especia
 **Decisión UX:** carga cognitiva (pestañas y tarjetas), Pareto (alertas, estadísticas e historial
 reciente primero), Jakob (perfil + pestañas), reconocimiento (duplicado y consentimientos).
 
-![Ficha de clienta](assets/ui/admin-client.png)
+![Ficha de clienta](../assets/ui/admin-client.png)
 
 ### 4.8 Cierre de caja
 
@@ -265,7 +265,7 @@ contado, diferencia, justificación, cierre e impresión; nota de auditoría.
 cierre), carga cognitiva (tablas por categoría y una sola cifra de diferencia), prevención de
 errores (justificación y auditoría).
 
-![Cierre de caja](assets/ui/admin-cash.png)
+![Cierre de caja](../assets/ui/admin-cash.png)
 
 ## 5. Componentes
 
