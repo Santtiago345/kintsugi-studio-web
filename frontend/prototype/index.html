@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kintsugi Studio — UI Prototype</title>
+<meta name="description" content="Prototipo de interfaz para Kintsugi Studio: sitio público, reserva, agenda, CRM y cierre de caja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ICON SPRITE -->
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5a3 3 0 0 1 0 6M21 20c0-2.5-1.5-4.6-4-5.5"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="M20 4L8.5 15.5M20 20L8.5 8.5"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M7 9v6M17 9v6"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a15 15 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 9c0 4 3 6 6 6l1.5-2-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2L9 9Z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5L5 21"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z"/><path d="M14 3v5h5M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.2"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l9 17H3z"/><path d="M12 9v5M12 17h.01"/></symbol>
+</svg>
+
+<!-- ============================================================ -->
+<!-- 01 · HOME                                                    -->
+<!-- ============================================================ -->
+<section class="screen" id="home">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark">K</span>
+        <span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span>
+      </a>
+      <nav class="nav">
+        <a href="#home" class="active">Inicio</a>
+        <a href="#services">Servicios</a>
+        <a href="#home">Filosofía</a>
+        <a href="#home">Galería</a>
+        <a href="#home">Contacto</a>
+      </nav>
+      <a class="btn btn-gold btn-sm header-cta" href="#booking-service">Reservar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <svg class="hero-crack" viewBox="0 0 600 800" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="goldline" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#C9A04A" stop-opacity="0"/>
+            <stop offset=".38" stop-color="#E3C987" stop-opacity=".95"/>
+            <stop offset="1" stop-color="#C9A04A" stop-opacity=".08"/>
+          </linearGradient>
+        </defs>
+        <path d="M430 -20 L396 118 L438 206 L362 296 L414 386 L342 468 L384 558 L302 648 L334 760" stroke="url(#goldline)" stroke-width="1.2"/>
+        <path d="M396 118 L506 148 L566 116" stroke="url(#goldline)" stroke-width=".8"/>
+        <path d="M438 206 L522 236 L560 300" stroke="url(#goldline)" stroke-width=".7"/>
+        <path d="M362 296 L286 250 L226 268" stroke="url(#goldline)" stroke-width=".65"/>
+        <path d="M414 386 L488 414 L520 486" stroke="url(#goldline)" stroke-width=".6"/>
+        <path d="M342 468 L264 432 L206 452" stroke="url(#goldline)" stroke-width=".6"/>
+        <path d="M384 558 L456 592 L474 664" stroke="url(#goldline)" stroke-width=".55"/>
+        <path d="M302 648 L238 618 L186 638" stroke="url(#goldline)" stroke-width=".5"/>
+        <circle cx="430" cy="300" r="150" stroke="#C9A04A" stroke-opacity=".10" stroke-width=".8"/>
+        <circle cx="430" cy="300" r="210" stroke="#C9A04A" stroke-opacity=".06" stroke-width=".8"/>
+      </svg>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Bogotá · Belleza y transformación</p>
+          <h1>La belleza<em>de renacer.</em></h1>
+          <p class="lead">Reparar las grietas con oro. Ese es el arte del kintsugi y también nuestra forma de acompañarte: una experiencia de belleza cercana, profesional y hecha a tu medida.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#booking-service">Reservar mi cita <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline" href="#services">Ver servicios</a>
+          </div>
+          <div class="trust-row">
+            <span class="trust-item"><svg class="icon"><use href="#i-users"/></svg> 200+ clientas al mes</span>
+            <span class="trust-item"><svg class="icon"><use href="#i-check"/></svg> Garantía de 5 días</span>
+            <span class="trust-item"><svg class="icon"><use href="#i-sparkles"/></svg> 7 especialistas</span>
+          </div>
+        </div>
+        <div class="hero-art">
+          <span class="orbit orbit-1"></span>
+          <span class="orbit orbit-2"></span>
+          <span class="orbit orbit-3"></span>
+          <div class="hero-card">
+            <p class="eyebrow">Próximo espacio</p>
+            <strong>Sábado 14</strong>
+            <span class="muted">9:00 a. m. · Semipermanente</span>
+            <span class="muted tiny" style="margin-top:10px;color:var(--gold)">2 h · desde $45.000</span>
+          </div>
+          <span class="hero-script">renacer</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Servicios destacados</p>
+            <h2 class="display">Lo que más piden<br><em>nuestras clientas.</em></h2>
+          </div>
+          <a class="link-arrow" href="#services">Ver los 72 servicios <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div>
+            <h3>Semipermanente</h3>
+            <p>Color impecable, secado inmediato y acabado natural por semanas.</p>
+            <div class="service-meta"><span>1 h 30 min</span><span class="price">Desde $45.000</span></div>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><svg class="icon"><use href="#i-scissors"/></svg></div>
+            <h3>Color y balayage</h3>
+            <p>Diseño de color a medida, con diagnóstico previo y cuidado del cabello.</p>
+            <div class="service-meta"><span>3 h 30 min</span><span class="price">Desde $270.000</span></div>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div>
+            <h3>Pedicure</h3>
+            <p>Bienestar de pies a cabeza con técnica, higiene y detalle.</p>
+            <div class="service-meta"><span>1 h 15 min</span><span class="price">Desde $48.000</span></div>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div>
+            <h3>Cejas y pestañas</h3>
+            <p>Mirada definida con laminado, lifting o diseño punto a punto.</p>
+            <div class="service-meta"><span>45 min</span><span class="price">Desde $35.000</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container split">
+        <div class="media-frame">
+          <svg class="crack-svg" viewBox="0 0 500 600" fill="none" aria-hidden="true">
+            <path d="M320 -10 L292 96 L330 178 L266 258 L306 338 L246 414 L282 492 L218 574" stroke="#C9A04A" stroke-opacity=".55" stroke-width="1"/>
+            <path d="M292 96 L390 126 L428 100" stroke="#C9A04A" stroke-opacity=".35" stroke-width=".7"/>
+            <path d="M330 178 L410 206 L438 272" stroke="#C9A04A" stroke-opacity=".3" stroke-width=".7"/>
+            <path d="M266 258 L196 222 L146 242" stroke="#C9A04A" stroke-opacity=".3" stroke-width=".6"/>
+            <circle cx="300" cy="270" r="130" stroke="#C9A04A" stroke-opacity=".12" stroke-width=".8"/>
+          </svg>
+          <div class="media-caption"><span>El arte de reparar</span><small>Kintsugi Studio</small></div>
+        </div>
+        <div>
+          <p class="eyebrow">Nuestra filosofía</p>
+          <h2 class="display">Tus grietas también<br><em>cuentan tu historia.</em></h2>
+          <p class="lead">No escondemos las marcas: las iluminamos. Cada servicio empieza con una valoración y termina con un resultado que se siente tuyo.</p>
+          <ul class="philosophy-list">
+            <li><span class="num">01</span><div><strong>Escuchamos primero</strong><p>Diagnóstico honesto antes de recomendar cualquier servicio.</p></div></li>
+            <li><span class="num">02</span><div><strong>Técnica con detalle</strong><p>Productos profesionales, protocolos claros y manos expertas.</p></div></li>
+            <li><span class="num">03</span><div><strong>Belleza que dura</strong><p>Acabados pensados para tu rutina, no solo para la foto.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Galería</p><h2 class="display">Resultados <em>reales.</em></h2></div>
+          <a class="link-arrow" href="#home">Ver Instagram <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="gallery">
+          <div class="gallery-item" data-label="Balayage · Marce"></div>
+          <div class="gallery-item" data-label="Semipermanente · Nico"></div>
+          <div class="gallery-item" data-label="Pedicure · Laura"></div>
+          <div class="gallery-item" data-label="Cejas · Danna"></div>
+          <div class="gallery-item" data-label="Soft gel · Nico"></div>
+          <div class="gallery-item" data-label="Maquillaje · Danna"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Testimonios</p><h2 class="display">Historias que <em>brillan.</em></h2></div>
+        </div>
+        <div class="quote-grid">
+          <article class="quote"><div class="stars">★★★★★</div><p>“Salí sintiéndome yo otra vez. El detalle y el trato hacen toda la diferencia.”</p><footer><span class="dot"></span> Camila R. · Semipermanente</footer></article>
+          <article class="quote"><div class="stars">★★★★★</div><p>“Me explicaron todo antes de tocar mi cabello. El color quedó exactamente como lo soñé.”</p><footer><span class="dot"></span> Laura P. · Balayage</footer></article>
+          <article class="quote"><div class="stars">★★★★★</div><p>“Un espacio cálido, limpio y profesional. Ya tengo mi cita del próximo mes.”</p><footer><span class="dot"></span> Daniela C. · Pedicure</footer></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band-grid">
+        <div>
+          <p class="eyebrow">Tu momento</p>
+          <h2 class="display">Es momento de reparar tus grietas para que brilles una vez más.</h2>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-gold" href="#booking-service">Reservar ahora <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-outline" href="https://wa.me/573132065167">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+          <p style="margin-top:16px;max-width:28ch">La belleza de renacer. Estudio de belleza y transformación en Bogotá.</p>
+        </div>
+        <div><h4>Explorar</h4><a href="#services">Servicios</a><a href="#home">Filosofía</a><a href="#home">Galería</a><a href="#booking-service">Reservar</a></div>
+        <div><h4>Contacto</h4><a href="https://wa.me/573132065167">WhatsApp 313 206 5167</a><a href="mailto:kintsugicn@gmail.com">kintsugicn@gmail.com</a><a href="#home">Calle 68 sur 78j-28, piso 02</a></div>
+        <div><h4>Síguenos</h4><a href="#home">Instagram @kintsugi_cn</a><a href="#home">TikTok @kintsugi_cn</a><a href="#home">Política de privacidad</a><a href="#home">Términos y condiciones</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Kintsugi Studio. Todos los derechos reservados.</span><span>Bogotá · Colombia</span></div>
+    </div>
+  </footer>
+</section>
+
+<!-- ============================================================ -->
+<!-- 02 · SERVICES                                                -->
+<!-- ============================================================ -->
+<section class="screen" id="services">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+      <nav class="nav">
+        <a href="#home">Inicio</a>
+        <a href="#services" class="active">Servicios</a>
+        <a href="#home">Filosofía</a>
+        <a href="#home">Galería</a>
+        <a href="#home">Contacto</a>
+      </nav>
+      <a class="btn btn-gold btn-sm header-cta" href="#booking-service">Reservar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Catálogo</p>
+        <h1 class="display">Servicios pensados<br><em>para ti.</em></h1>
+        <p class="lead">72 servicios en 7 áreas. Elige por categoría o busca el tuyo. Los valores “desde” se confirman en la valoración según largo, densidad y estado.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="toolbar">
+        <div class="chips">
+          <button class="chip active" data-filter="all">Todos</button>
+          <button class="chip" data-filter="cabello">Cabello</button>
+          <button class="chip" data-filter="manicura">Manicura</button>
+          <button class="chip" data-filter="pedicura">Pedicura</button>
+          <button class="chip" data-filter="cejas">Cejas y pestañas</button>
+          <button class="chip" data-filter="depilacion">Depilación</button>
+          <button class="chip" data-filter="maquillaje">Maquillaje</button>
+        </div>
+        <label class="search-box"><svg class="icon"><use href="#i-search"/></svg><input type="search" placeholder="Buscar un servicio..."></label>
+      </div>
+
+      <div class="services-grid" id="services-grid">
+        <article class="service-card wide" data-cat="cabello">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-scissors"/></svg></div><span class="service-tag">Más pedido</span></div>
+          <h3>Balayage</h3><p class="service-desc">Diseño de color personalizado con diagnóstico previo.</p>
+          <div class="service-meta"><span>3 h 30 min</span><span class="price">Desde $270.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Marce</span></div>
+        </article>
+        <article class="service-card wide" data-cat="manicura">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div><span class="service-tag">Favorito</span></div>
+          <h3>Semipermanente</h3><p class="service-desc">Color de larga duración con acabado natural.</p>
+          <div class="service-meta"><span>1 h 30 min</span><span class="price">Desde $45.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Nico</span></div>
+        </article>
+        <article class="service-card wide" data-cat="pedicura">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div></div>
+          <h3>Pedicure semipermanente</h3><p class="service-desc">Cuidado completo de pies con esmaltado de larga duración.</p>
+          <div class="service-meta"><span>1 h 15 min</span><span class="price">Desde $48.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Laura</span></div>
+        </article>
+        <article class="service-card wide" data-cat="cabello">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-scissors"/></svg></div></div>
+          <h3>Corrección de color</h3><p class="service-desc">Reparación de tono y uniformidad con técnica profesional.</p>
+          <div class="service-meta"><span>4 h</span><span class="price">Desde $290.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Marce</span></div>
+        </article>
+        <article class="service-card wide" data-cat="cabello">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-scissors"/></svg></div></div>
+          <h3>Corte estructural</h3><p class="service-desc">Shampoo, acondicionador, corte y cepillado.</p>
+          <div class="service-meta"><span>1 h</span><span class="price">$45.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Marce</span></div>
+        </article>
+        <article class="service-card wide" data-cat="cabello">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-scissors"/></svg></div><span class="service-tag">Nuevo</span></div>
+          <h3>Alisado progresivo</h3><p class="service-desc">Shampoo, keratina y sellado para un acabado suave.</p>
+          <div class="service-meta"><span>3 h</span><span class="price">Desde $150.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Marce</span></div>
+        </article>
+        <article class="service-card wide" data-cat="manicura">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div></div>
+          <h3>Soft gel</h3><p class="service-desc">Extensión ligera y flexible con acabado natural.</p>
+          <div class="service-meta"><span>2 h</span><span class="price">Desde $88.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Nico</span></div>
+        </article>
+        <article class="service-card wide" data-cat="manicura">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div></div>
+          <h3>Kapping poligel</h3><p class="service-desc">Refuerzo sobre uña natural para mayor resistencia.</p>
+          <div class="service-meta"><span>2 h</span><span class="price">Desde $70.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Nico</span></div>
+        </article>
+        <article class="service-card wide" data-cat="cejas">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div><span class="service-tag">Favorito</span></div>
+          <h3>Laminado de cejas</h3><p class="service-desc">Diseño que ordena y define la mirada.</p>
+          <div class="service-meta"><span>45 min</span><span class="price">$50.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Danna</span></div>
+        </article>
+        <article class="service-card wide" data-cat="cejas">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div></div>
+          <h3>Lifting de pestañas</h3><p class="service-desc">Curvatura y definición sin extensiones.</p>
+          <div class="service-meta"><span>1 h</span><span class="price">$70.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Danna</span></div>
+        </article>
+        <article class="service-card wide" data-cat="depilacion">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div></div>
+          <h3>Depilación pierna completa</h3><p class="service-desc">Técnica suave con cera tibia y cuidado de la piel.</p>
+          <div class="service-meta"><span>45 min</span><span class="price">Desde $48.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Danna</span></div>
+        </article>
+        <article class="service-card wide" data-cat="maquillaje">
+          <div class="service-top"><div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div></div>
+          <h3>Maquillaje social</h3><p class="service-desc">Maquillaje a medida para tu evento o celebración.</p>
+          <div class="service-meta"><span>1 h</span><span class="price">Desde $50.000</span></div>
+          <div class="service-actions"><a class="link-arrow" href="#booking-service">Reservar <svg class="icon"><use href="#i-arrow"/></svg></a><span class="tiny muted">Danna</span></div>
+        </article>
+      </div>
+
+      <div class="note-band">
+        <p><strong>¿No sabes qué elegir?</strong> Escríbenos y te asesoramos sin costo por WhatsApp.</p>
+        <a class="btn btn-outline btn-sm" href="https://wa.me/573132065167">Hablar con una asesora</a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- ============================================================ -->
+<!-- 03 · BOOKING STEP 1                                          -->
+<!-- ============================================================ -->
+<section class="screen" id="booking-service">
+  <header class="booking-header">
+    <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+    <span class="secure"><svg class="icon"><use href="#i-check"/></svg> Reserva segura</span>
+  </header>
+
+  <div class="booking-shell">
+    <div class="booking-top">
+      <div>
+        <p class="eyebrow">Reserva tu cita</p>
+        <h1 class="display" style="font-size:38px">Elige tu servicio<br><em>y tu especialista.</em></h1>
+      </div>
+      <div class="steps">
+        <span class="step active"><span class="n">1</span> Servicio</span><span class="step-line"></span>
+        <span class="step"><span class="n">2</span> Fecha</span><span class="step-line"></span>
+        <span class="step"><span class="n">3</span> Datos</span>
+      </div>
+    </div>
+
+    <div class="booking-grid">
+      <div>
+        <div class="panel">
+          <div class="panel-title"><div><h2>¿Qué te vas a hacer?</h2><p>Elige una categoría y luego el servicio.</p></div><span class="tiny muted">72 servicios</span></div>
+
+          <details class="choice-group">
+            <summary>Cabello <span class="count">21 servicios</span><svg class="icon"><use href="#i-chevron"/></svg></summary>
+            <div class="choice-body">
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Balayage</strong><small>3 h 30 min · Marce</small></span><span class="choice-price">Desde $270.000</span></label>
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Corrección de color</strong><small>4 h · Marce</small></span><span class="choice-price">Desde $290.000</span></label>
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Corte estructural</strong><small>1 h · Marce</small></span><span class="choice-price">$45.000</span></label>
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Alisado progresivo</strong><small>3 h · Marce</small></span><span class="choice-price">Desde $150.000</span></label>
+            </div>
+          </details>
+
+          <details class="choice-group" open>
+            <summary>Manicura y pedicura <span class="count">18 servicios</span><svg class="icon"><use href="#i-chevron"/></svg></summary>
+            <div class="choice-body">
+              <label class="choice-row"><input type="radio" name="service" checked><span class="radio"></span><span class="choice-main"><strong>Semipermanente + retiro</strong><small>2 servicios · 2 h · Nico</small></span><span class="choice-price">$65.000</span></label>
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Semipermanente</strong><small>1 h 30 min · Nico</small></span><span class="choice-price">Desde $45.000</span></label>
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Soft gel</strong><small>2 h · Nico</small></span><span class="choice-price">Desde $88.000</span></label>
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Pedicure semipermanente</strong><small>1 h 15 min · Laura</small></span><span class="choice-price">Desde $48.000</span></label>
+            </div>
+          </details>
+
+          <details class="choice-group">
+            <summary>Cejas y pestañas <span class="count">11 servicios</span><svg class="icon"><use href="#i-chevron"/></svg></summary>
+            <div class="choice-body">
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Laminado de cejas</strong><small>45 min · Danna</small></span><span class="choice-price">$50.000</span></label>
+              <label class="choice-row"><input type="radio" name="service"><span class="radio"></span><span class="choice-main"><strong>Lifting de pestañas</strong><small>1 h · Danna</small></span><span class="choice-price">$70.000</span></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><div><h2>¿Con quién?</h2><p>Si no tienes preferencia, asignamos a la especialista disponible.</p></div></div>
+          <div class="pro-grid">
+            <label class="pro-card" style="grid-column:1/-1"><input type="radio" name="pro"><span class="pro-avatar">✦</span><span><strong>Cualquier especialista disponible</strong><small>Te asignamos la mejor opción para tu horario.</small></span></label>
+            <label class="pro-card"><input type="radio" name="pro" checked><span class="pro-avatar">N</span><span><strong>Nico</strong><small>Manicura y sistemas</small></span></label>
+            <label class="pro-card"><input type="radio" name="pro"><span class="pro-avatar">M</span><span><strong>Marce</strong><small>Color y cabello</small></span></label>
+            <label class="pro-card"><input type="radio" name="pro"><span class="pro-avatar">L</span><span><strong>Laura</strong><small>Pedicure y montajes</small></span></label>
+            <label class="pro-card"><input type="radio" name="pro"><span class="pro-avatar">D</span><span><strong>Danna</strong><small>Cejas y maquillaje</small></span></label>
+          </div>
+        </div>
+      </div>
+
+      <aside class="summary-card">
+        <p class="eyebrow">Tu reserva</p>
+        <div class="summary-service"><strong>Semipermanente + retiro</strong><span>Manicura · con Nico</span></div>
+        <div class="summary-rows">
+          <div class="summary-row"><span>Duración</span><strong>2 h</strong></div>
+          <div class="summary-row"><span>Precio</span><strong>$65.000</strong></div>
+          <div class="summary-row"><span>Abono</span><strong>$20.000</strong></div>
+        </div>
+        <div class="summary-total"><span>Total cotizado</span><strong>$65.000</strong></div>
+        <p class="summary-note">El valor incluye el retiro del sistema. Puede variar si se agrega o modifica un servicio.</p>
+        <a class="btn btn-gold btn-block" href="#booking-datetime">Elegir fecha y hora <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost btn-block" href="#services">Volver a servicios</a>
+        <div class="policy-mini">
+          <span><svg class="icon"><use href="#i-clock"/></svg> Reprogramación hasta 12 h antes.</span>
+          <span><svg class="icon"><use href="#i-check"/></svg> Garantía de 5 días.</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 04 · BOOKING STEP 2                                          -->
+<!-- ============================================================ -->
+<section class="screen" id="booking-datetime">
+  <header class="booking-header">
+    <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+    <span class="secure"><svg class="icon"><use href="#i-check"/></svg> Reserva segura</span>
+  </header>
+
+  <div class="booking-shell">
+    <div class="booking-top">
+      <div>
+        <p class="eyebrow">Paso 2 de 3</p>
+        <h1 class="display" style="font-size:38px">Elige el día<br><em>y la hora.</em></h1>
+      </div>
+      <div class="steps">
+        <span class="step done"><span class="n">✓</span> Servicio</span><span class="step-line"></span>
+        <span class="step active"><span class="n">2</span> Fecha</span><span class="step-line"></span>
+        <span class="step"><span class="n">3</span> Datos</span>
+      </div>
+    </div>
+
+    <div class="booking-grid">
+      <div>
+        <div class="panel">
+          <div class="calendar-head">
+            <strong>Noviembre 2026</strong>
+            <div class="calendar-nav"><button aria-label="Mes anterior"><svg class="icon" style="transform:rotate(90deg)"><use href="#i-chevron"/></svg></button><button aria-label="Mes siguiente"><svg class="icon" style="transform:rotate(-90deg)"><use href="#i-chevron"/></svg></button></div>
+          </div>
+          <div class="calendar">
+            <span class="dow">L</span><span class="dow">M</span><span class="dow">M</span><span class="dow">J</span><span class="dow">V</span><span class="dow">S</span><span class="dow">D</span>
+            <span class="day muted-day">26</span><span class="day muted-day">27</span><span class="day muted-day">28</span><span class="day muted-day">29</span><span class="day muted-day">30</span><span class="day muted-day">31</span><span class="day off">1</span>
+            <span class="day off">2</span><span class="day available">3</span><span class="day available">4</span><span class="day available">5</span><span class="day available">6</span><span class="day available">7</span><span class="day off">8</span>
+            <span class="day off">9</span><span class="day available">10</span><span class="day available">11</span><span class="day available">12</span><span class="day available">13</span><span class="day selected">14</span><span class="day off">15</span>
+            <span class="day available">16</span><span class="day available">17</span><span class="day available">18</span><span class="day available">19</span><span class="day available">20</span><span class="day available">21</span><span class="day off">22</span>
+            <span class="day off">23</span><span class="day available">24</span><span class="day available">25</span><span class="day available">26</span><span class="day available">27</span><span class="day available">28</span><span class="day off">29</span>
+            <span class="day off">30</span><span class="day muted-day">1</span><span class="day muted-day">2</span><span class="day muted-day">3</span><span class="day muted-day">4</span><span class="day muted-day">5</span><span class="day muted-day">6</span>
+          </div>
+          <div style="display:flex;gap:18px;margin-top:14px;color:var(--muted-2);font-size:9px">
+            <span style="display:flex;align-items:center;gap:6px"><i style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block"></i> Disponible</span>
+            <span style="display:flex;align-items:center;gap:6px"><i style="width:7px;height:7px;border-radius:50%;background:var(--muted-2);display:inline-block"></i> Cerrado</span>
+            <span style="display:flex;align-items:center;gap:6px;color:var(--muted-2)">Sábado 14 de noviembre</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><div><h2>Horarios disponibles</h2><p>Sábado 14 de noviembre · hora de Bogotá</p></div><span class="tiny muted">Duración 2 h</span></div>
+          <div class="slot-title">Mañana</div>
+          <div class="slots">
+            <button class="slot off" disabled>8:00</button>
+            <button class="slot selected">9:00</button>
+            <button class="slot">9:30</button>
+            <button class="slot off" disabled>10:00</button>
+            <button class="slot">11:00</button>
+            <button class="slot">11:30</button>
+            <button class="slot off" disabled>12:00</button>
+          </div>
+          <div class="slot-title">Tarde</div>
+          <div class="slots">
+            <button class="slot">13:00</button>
+            <button class="slot">14:00</button>
+            <button class="slot">14:30</button>
+            <button class="slot off" disabled>15:00</button>
+            <button class="slot">16:00</button>
+            <button class="slot">16:30</button>
+            <button class="slot">17:00</button>
+            <button class="slot off" disabled>18:00</button>
+          </div>
+          <div class="hold-note"><svg class="icon"><use href="#i-clock"/></svg> Tu horario queda reservado por 10:00 minutos mientras completas la reserva.</div>
+        </div>
+      </div>
+
+      <aside class="summary-card">
+        <p class="eyebrow">Tu reserva</p>
+        <div class="summary-service"><strong>Semipermanente + retiro</strong><span>Manicura · con Nico</span></div>
+        <div class="summary-rows">
+          <div class="summary-row"><span>Fecha</span><strong>Sábado 14 de nov.</strong></div>
+          <div class="summary-row"><span>Hora</span><strong>9:00 a. m.</strong></div>
+          <div class="summary-row"><span>Duración</span><strong>2 h</strong></div>
+          <div class="summary-row"><span>Abono</span><strong>$20.000</strong></div>
+        </div>
+        <div class="summary-total"><span>Total cotizado</span><strong>$65.000</strong></div>
+        <p class="summary-note">El abono se descuenta del valor final. No es reembolsable si cancelas con menos de 12 h.</p>
+        <a class="btn btn-gold btn-block" href="#booking-confirm">Continuar con mis datos <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost btn-block" href="#booking-service">Cambiar servicio</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 05 · BOOKING STEP 3                                          -->
+<!-- ============================================================ -->
+<section class="screen" id="booking-confirm">
+  <header class="booking-header">
+    <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+    <span class="secure"><svg class="icon"><use href="#i-check"/></svg> Reserva segura</span>
+  </header>
+
+  <div class="booking-shell">
+    <div class="booking-top">
+      <div>
+        <p class="eyebrow">Paso 3 de 3</p>
+        <h1 class="display" style="font-size:38px">Tus datos<br><em>y listo.</em></h1>
+      </div>
+      <div class="steps">
+        <span class="step done"><span class="n">✓</span> Servicio</span><span class="step-line"></span>
+        <span class="step done"><span class="n">✓</span> Fecha</span><span class="step-line"></span>
+        <span class="step active"><span class="n">3</span> Datos</span>
+      </div>
+    </div>
+
+    <div class="booking-grid">
+      <div>
+        <div class="panel">
+          <div class="panel-title"><div><h2>¿Cómo te contactamos?</h2><p>Usaremos estos datos para confirmar tu cita por WhatsApp.</p></div></div>
+          <div class="alert" style="margin-bottom:18px"><svg class="icon"><use href="#i-alert"/></svg><div><strong>Posible duplicado</strong>Ya existe una clienta con el teléfono +57 300 214 8890. Si eres tú, usa “Ya soy clienta”.</div></div>
+          <div class="form-grid">
+            <div class="field full"><label>Nombre completo</label><input value="Camila Restrepo"></div>
+            <div class="field"><label>Teléfono / WhatsApp</label><input value="+57 300 214 8890"></div>
+            <div class="field"><label>Correo</label><input value="camila.r@email.com"></div>
+            <div class="field full"><label>Notas para tu especialista (opcional)</label><textarea placeholder="Alergias, preferencias, detalles del servicio...">Uñas frágiles. Prefiero lima eléctrica y tono nude rosado.</textarea></div>
+          </div>
+          <label class="check" style="margin-top:6px"><input type="checkbox" checked> Acepto la <a href="#home">política de tratamiento de datos</a> y las condiciones de la reserva.</label>
+          <label class="check" style="margin-top:10px"><input type="checkbox"> Quiero recibir recordatorios y beneficios por WhatsApp.</label>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><div><h2>Condiciones de tu cita</h2><p>Las mismas que verás en el mensaje de confirmación.</p></div></div>
+          <div class="policy-mini" style="margin-top:0;padding-top:0;border-top:0">
+            <span><svg class="icon"><use href="#i-clock"/></svg> Reprograma máximo 12 horas antes. Una sola reprogramación.</span>
+            <span><svg class="icon"><use href="#i-clock"/></svg> Tolerancia de espera: 5 minutos.</span>
+            <span><svg class="icon"><use href="#i-check"/></svg> Garantía de 5 días posteriores al servicio.</span>
+            <span><svg class="icon"><use href="#i-close"/></svg> No se permite el ingreso de mascotas ni de menores de 7 años.</span>
+            <span><svg class="icon"><use href="#i-card"/></svg> El abono no es reembolsable.</span>
+            <span><svg class="icon"><use href="#i-sparkles"/></svg> El precio puede variar si se agrega o modifica un servicio.</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="summary-card">
+        <p class="eyebrow">Resumen final</p>
+        <div class="summary-service"><strong>Semipermanente + retiro</strong><span>Manicura · con Nico</span></div>
+        <div class="summary-rows">
+          <div class="summary-row"><span>Fecha</span><strong>Sábado 14 de nov.</strong></div>
+          <div class="summary-row"><span>Hora</span><strong>9:00 a. m.</strong></div>
+          <div class="summary-row"><span>Duración</span><strong>2 h</strong></div>
+          <div class="summary-row"><span>Cliente</span><strong>Camila Restrepo</strong></div>
+        </div>
+        <div class="summary-total"><span>Total cotizado</span><strong>$65.000</strong></div>
+        <div class="summary-row" style="padding-bottom:16px"><span>Abono a pagar hoy</span><strong style="color:var(--champagne)">$20.000</strong></div>
+        <button class="btn btn-gold btn-block">Confirmar reserva <svg class="icon"><use href="#i-arrow"/></svg></button>
+        <p class="summary-note" style="text-align:center;margin-top:12px">Pagas el abono en el salón. El saldo se cancela al finalizar el servicio.</p>
+        <a class="btn btn-ghost btn-block" href="#booking-datetime">Volver a fecha y hora</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 06 · ADMIN AGENDA                                            -->
+<!-- ============================================================ -->
+<section class="screen" id="admin-agenda">
+  <div class="app">
+    <aside class="app-sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+      <div><p class="side-label">Operación</p><nav class="side-nav">
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-home"/></svg> Tablero</a>
+        <a href="#admin-agenda" class="active"><svg class="icon"><use href="#i-calendar"/></svg> Agenda</a>
+        <a href="#admin-client"><svg class="icon"><use href="#i-users"/></svg> Clientes</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-sparkles"/></svg> Servicios</a>
+        <a href="#admin-cash"><svg class="icon"><use href="#i-cash"/></svg> Caja</a>
+      </nav></div>
+      <div><p class="side-label">Análisis</p><nav class="side-nav">
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-chart"/></svg> Reportes</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-settings"/></svg> Ajustes</a>
+      </nav></div>
+      <div class="side-foot">
+        <div class="side-user"><span class="pro-avatar">N</span><span><strong>Nicolle</strong><small>Administradora</small></span></div>
+        <a class="side-nav" href="#home" style="display:flex;margin-top:6px"><svg class="icon"><use href="#i-logout"/></svg> Cerrar sesión</a>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <span class="topbar-title">Operación</span>
+        <label class="topbar-search"><svg class="icon"><use href="#i-search"/></svg><input placeholder="Buscar clienta o cita..."></label>
+        <button class="icon-btn"><svg class="icon"><use href="#i-bell"/></svg></button>
+        <span class="pro-avatar" style="width:34px;height:34px;font-size:13px">N</span>
+      </header>
+
+      <div class="app-content">
+        <div class="page-title">
+          <div><h1>Agenda del día</h1><p>Sábado 14 de noviembre de 2026 · Bogotá</p></div>
+          <div class="page-title-actions"><a class="btn btn-outline btn-sm" href="#admin-cash">Cerrar caja</a><button class="btn btn-gold btn-sm"><svg class="icon"><use href="#i-plus"/></svg> Nueva cita</button></div>
+        </div>
+
+        <div class="kpi-row">
+          <div class="kpi"><span><svg class="icon"><use href="#i-calendar"/></svg> Citas hoy</span><strong>12</strong><small class="up">+2 vs. sábado anterior</small></div>
+          <div class="kpi"><span><svg class="icon"><use href="#i-cash"/></svg> Ingresos del día</span><strong>$684.000</strong><small class="up">106% de la meta diaria</small></div>
+          <div class="kpi"><span><svg class="icon"><use href="#i-chart"/></svg> Ocupación</span><strong>68%</strong><small>14 h libres</small></div>
+          <div class="kpi"><span><svg class="icon"><use href="#i-users"/></svg> No-show</span><strong>0</strong><small>Sin ausencias hoy</small></div>
+        </div>
+
+        <div class="toolbar-row">
+          <div class="date-nav"><button class="icon-btn" style="width:28px;height:28px"><svg class="icon" style="transform:rotate(90deg)"><use href="#i-chevron"/></svg></button><strong>Sábado 14 de noviembre</strong><button class="icon-btn" style="width:28px;height:28px"><svg class="icon" style="transform:rotate(-90deg)"><use href="#i-chevron"/></svg></button></div>
+          <span class="seg"><button class="active">Día</button><button>Semana</button></span>
+          <span class="spacer"></span>
+          <span class="mini-select"><svg class="icon" style="width:13px;height:13px"><use href="#i-filter"/></svg> Todas las especialistas</span>
+          <span class="mini-select">Solo confirmadas</span>
+        </div>
+
+        <div class="agenda-wrap">
+          <div class="agenda-head">
+            <div>Hora</div>
+            <div class="pro-head"><span class="pro-dot"></span> Nico</div>
+            <div class="pro-head"><span class="pro-dot m"></span> Marce</div>
+            <div class="pro-head"><span class="pro-dot l"></span> Laura</div>
+            <div class="pro-head"><span class="pro-dot d"></span> Danna</div>
+          </div>
+          <div class="agenda-body" style="height:540px">
+            <div class="time-axis">
+              <div>08:00</div><div>09:00</div><div>10:00</div><div>11:00</div><div>12:00</div><div>13:00</div><div>14:00</div><div>15:00</div><div>16:00</div><div>17:00</div><div>18:00</div><div>19:00</div>
+            </div>
+            <div class="pro-col">
+              <div class="appt" style="top:45px;height:90px"><strong>Camila R.</strong><small>Semipermanente + retiro</small><small>9:00–11:00 · Confirmada</small></div>
+              <div class="appt a2" style="top:225px;height:68px"><strong>Valentina G.</strong><small>Soft gel</small><small>13:00–14:30</small></div>
+              <div class="appt rest" style="top:180px;height:45px">Almuerzo</div>
+              <div class="appt a3" style="top:360px;height:45px"><strong>Sara M.</strong><small>Retoque</small><small>16:00–17:00</small></div>
+            </div>
+            <div class="pro-col">
+              <div class="appt a4" style="top:22px;height:158px"><strong>Laura P.</strong><small>Balayage</small><small>8:30–12:00 · Confirmada</small></div>
+              <div class="appt" style="top:225px;height:90px"><strong>Daniela C.</strong><small>Tono plano</small><small>13:00–15:00</small></div>
+              <div class="appt rest" style="top:180px;height:45px">Almuerzo</div>
+              <div class="appt a2" style="top:382px;height:45px"><strong>Ana G.</strong><small>Corte</small><small>16:30–17:30</small></div>
+            </div>
+            <div class="pro-col">
+              <div class="appt a3" style="top:45px;height:68px"><strong>Juliana R.</strong><small>Pedicure</small><small>9:00–10:30</small></div>
+              <div class="appt" style="top:135px;height:90px"><strong>Carolina T.</strong><small>Montaje</small><small>11:00–13:00</small></div>
+              <div class="appt rest" style="top:225px;height:45px">Almuerzo</div>
+              <div class="appt a2" style="top:270px;height:68px"><strong>Isabella M.</strong><small>Semipermanente</small><small>14:00–15:30</small></div>
+            </div>
+            <div class="pro-col">
+              <div class="appt rest" style="top:0;height:68px">Horario reducido</div>
+              <div class="appt a4" style="top:90px;height:45px"><strong>Cejas · M.</strong><small>Laminado</small><small>10:00–11:00</small></div>
+              <div class="appt a3" style="top:180px;height:45px"><strong>Lifting · S.</strong><small>Pestañas</small><small>12:00–13:00</small></div>
+              <div class="appt" style="top:315px;height:90px"><strong>Maquillaje · V.</strong><small>Social</small><small>15:00–17:00</small></div>
+            </div>
+          </div>
+          <div class="agenda-legend"><span><i class="legend-dot"></i> Cita confirmada</span><span><i class="legend-dot" style="background:#b98b9c"></i> En curso / otro servicio</span><span><i class="legend-dot rest"></i> Descanso o cierre</span><span style="margin-left:auto">Haz clic en una cita para editarla</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 07 · ADMIN CLIENT RECORD                                     -->
+<!-- ============================================================ -->
+<section class="screen" id="admin-client">
+  <div class="app">
+    <aside class="app-sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+      <div><p class="side-label">Operación</p><nav class="side-nav">
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-home"/></svg> Tablero</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-calendar"/></svg> Agenda</a>
+        <a href="#admin-client" class="active"><svg class="icon"><use href="#i-users"/></svg> Clientes</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-sparkles"/></svg> Servicios</a>
+        <a href="#admin-cash"><svg class="icon"><use href="#i-cash"/></svg> Caja</a>
+      </nav></div>
+      <div><p class="side-label">Análisis</p><nav class="side-nav">
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-chart"/></svg> Reportes</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-settings"/></svg> Ajustes</a>
+      </nav></div>
+      <div class="side-foot">
+        <div class="side-user"><span class="pro-avatar">N</span><span><strong>Nicolle</strong><small>Administradora</small></span></div>
+        <a class="side-nav" href="#home" style="display:flex;margin-top:6px"><svg class="icon"><use href="#i-logout"/></svg> Cerrar sesión</a>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <span class="topbar-title">Clientes</span>
+        <label class="topbar-search"><svg class="icon"><use href="#i-search"/></svg><input placeholder="Buscar clienta..."></label>
+        <button class="icon-btn"><svg class="icon"><use href="#i-bell"/></svg></button>
+        <span class="pro-avatar" style="width:34px;height:34px;font-size:13px">N</span>
+      </header>
+
+      <div class="app-content">
+        <div class="alert" style="margin-bottom:14px"><svg class="icon"><use href="#i-alert"/></svg><div><strong>Posible duplicado detectado</strong>Existe otra ficha con el teléfono +57 300 214 8890 creada el 3 de marzo. Revisa antes de guardar cambios.</div></div>
+
+        <div class="client-head">
+          <div class="client-id">
+            <span class="client-avatar">C</span>
+            <div><h1>Camila Restrepo</h1><p>+57 300 214 8890 · camila.r@email.com · Bogotá</p><div class="client-tags"><span class="tag">VIP</span><span class="tag neutral">Frecuente</span><span class="tag neutral">Cumpleaños 22 mar</span></div></div>
+          </div>
+          <div class="page-title-actions"><a class="btn btn-outline btn-sm" href="https://wa.me/573002148890"><svg class="icon"><use href="#i-whatsapp"/></svg> WhatsApp</a><button class="btn btn-outline btn-sm"><svg class="icon"><use href="#i-calendar"/></svg> Nueva cita</button><button class="btn btn-gold btn-sm">Editar ficha</button></div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat"><span>Visitas</span><strong>12</strong></div>
+          <div class="stat"><span>Ticket promedio</span><strong>$78.400</strong></div>
+          <div class="stat"><span>Última visita</span><strong>14 nov</strong></div>
+          <div class="stat"><span>Valor de vida</span><strong>$940.800</strong></div>
+        </div>
+
+        <div class="client-grid">
+          <aside>
+            <div class="side-card">
+              <h3>Contacto</h3>
+              <div class="info-row"><svg class="icon"><use href="#i-phone"/></svg><div><strong>+57 300 214 8890</strong>WhatsApp principal</div></div>
+              <div class="info-row"><svg class="icon"><use href="#i-mail"/></svg><div><strong>camila.r@email.com</strong>Correo verificado</div></div>
+              <div class="info-row"><svg class="icon"><use href="#i-tag"/></svg><div><strong>22 de marzo</strong>Cumpleaños</div></div>
+            </div>
+            <div class="side-card">
+              <h3>Alertas y preferencias</h3>
+              <div class="alert-list">
+                <span><svg class="icon"><use href="#i-alert"/></svg> Alergia a monómero de acrílico.</span>
+                <span><svg class="icon"><use href="#i-check"/></svg> Prefiere lima eléctrica y tonos nude.</span>
+                <span><svg class="icon"><use href="#i-check"/></svg> Café sin azúcar. Cabello con decoloración previa.</span>
+              </div>
+            </div>
+            <div class="side-card">
+              <h3>Consentimientos</h3>
+              <div class="info-row"><svg class="icon"><use href="#i-check"/></svg><div><strong>Datos personales</strong>Aceptado · 12 mar 2026</div></div>
+              <div class="info-row"><svg class="icon"><use href="#i-check"/></svg><div><strong>Imágenes</strong>Aceptado · 12 mar 2026</div></div>
+              <div class="info-row"><svg class="icon"><use href="#i-close"/></svg><div><strong>Marketing</strong>No autorizado</div></div>
+            </div>
+          </aside>
+
+          <div>
+            <div class="tabs"><button class="active">Historial</button><button>Fotos</button><button>Fórmulas</button><button>Notas</button></div>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-date"><strong>14 nov</strong>2026</div><div class="timeline-main"><strong>Semipermanente + retiro</strong><small>Nico · 2 h · Rubber base nude</small></div><div class="timeline-price">$65.000<small><span class="status done">Completada</span></small></div></div>
+              <div class="timeline-item"><div class="timeline-date"><strong>17 oct</strong>2026</div><div class="timeline-main"><strong>Balayage + corte</strong><small>Marce · 3 h 30 min · Tono 7.3</small></div><div class="timeline-price">$315.000<small><span class="status done">Completada</span></small></div></div>
+              <div class="timeline-item"><div class="timeline-date"><strong>12 sep</strong>2026</div><div class="timeline-main"><strong>Pedicure semipermanente</strong><small>Laura · 1 h 15 min · Rojo profundo</small></div><div class="timeline-price">$48.000<small><span class="status done">Completada</span></small></div></div>
+              <div class="timeline-item"><div class="timeline-date"><strong>15 ago</strong>2026</div><div class="timeline-main"><strong>Laminado de cejas</strong><small>Danna · 45 min</small></div><div class="timeline-price">$50.000<small><span class="status cancel">Cancelada</span></small></div></div>
+            </div>
+
+            <div class="notes-grid" style="margin-top:14px">
+              <div class="note-card"><h4>Última fórmula</h4><p>Semipermanente · base rubber · tono nude rosado · 2 capas · sin limpieza con acetona.</p></div>
+              <div class="note-card"><h4>Nota de la especialista</h4><p>Uña natural delgada. Evitar limado agresivo y dejar secar 48 h antes de exponer al agua.</p></div>
+            </div>
+
+            <div class="photo-grid" style="margin-top:12px">
+              <div class="photo"></div><div class="photo"></div><div class="photo"></div><div class="photo"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 08 · ADMIN CASH CLOSING                                      -->
+<!-- ============================================================ -->
+<section class="screen" id="admin-cash">
+  <div class="app">
+    <aside class="app-sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">K</span><span class="brand-text"><span class="brand-name">KINTSUGI</span><span class="brand-sub">STUDIO</span></span></a>
+      <div><p class="side-label">Operación</p><nav class="side-nav">
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-home"/></svg> Tablero</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-calendar"/></svg> Agenda</a>
+        <a href="#admin-client"><svg class="icon"><use href="#i-users"/></svg> Clientes</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-sparkles"/></svg> Servicios</a>
+        <a href="#admin-cash" class="active"><svg class="icon"><use href="#i-cash"/></svg> Caja</a>
+      </nav></div>
+      <div><p class="side-label">Análisis</p><nav class="side-nav">
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-chart"/></svg> Reportes</a>
+        <a href="#admin-agenda"><svg class="icon"><use href="#i-settings"/></svg> Ajustes</a>
+      </nav></div>
+      <div class="side-foot">
+        <div class="side-user"><span class="pro-avatar">N</span><span><strong>Nicolle</strong><small>Administradora</small></span></div>
+        <a class="side-nav" href="#home" style="display:flex;margin-top:6px"><svg class="icon"><use href="#i-logout"/></svg> Cerrar sesión</a>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <span class="topbar-title">Finanzas</span>
+        <label class="topbar-search"><svg class="icon"><use href="#i-search"/></svg><input placeholder="Buscar movimiento..."></label>
+        <button class="icon-btn"><svg class="icon"><use href="#i-bell"/></svg></button>
+        <span class="pro-avatar" style="width:34px;height:34px;font-size:13px">N</span>
+      </header>
+
+      <div class="app-content">
+        <div class="page-title">
+          <div><h1>Cierre de caja</h1><p>Sábado 14 de noviembre de 2026 · turno completo</p></div>
+          <div class="page-title-actions"><button class="btn btn-outline btn-sm"><svg class="icon"><use href="#i-note"/></svg> Exportar</button><button class="btn btn-gold btn-sm"><svg class="icon"><use href="#i-check"/></svg> Cerrar caja</button></div>
+        </div>
+
+        <div class="kpi-row">
+          <div class="kpi"><span><svg class="icon"><use href="#i-cash"/></svg> Ventas del día</span><strong>$684.000</strong><small>12 citas completadas</small></div>
+          <div class="kpi"><span><svg class="icon"><use href="#i-card"/></svg> Efectivo</span><strong>$312.000</strong><small>46% del total</small></div>
+          <div class="kpi"><span><svg class="icon"><use href="#i-card"/></svg> Bancolombia</span><strong>$372.000</strong><small>54% del total</small></div>
+          <div class="kpi"><span><svg class="icon"><use href="#i-chart"/></svg> Gastos</span><strong>$96.500</strong><small>14% de las ventas</small></div>
+        </div>
+
+        <div class="cash-grid">
+          <div>
+            <div class="table-card">
+              <h3>Ingresos por método de pago</h3>
+              <table>
+                <thead><tr><th>Método</th><th class="num">Movimientos</th><th class="num">Valor</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Efectivo</strong></td><td class="num">5</td><td class="num"><strong>$312.000</strong></td></tr>
+                  <tr><td><strong>Bancolombia</strong></td><td class="num">7</td><td class="num"><strong>$372.000</strong></td></tr>
+                  <tr><td>Addi</td><td class="num">0</td><td class="num">$0</td></tr>
+                  <tr><td>Sistecrédito</td><td class="num">0</td><td class="num">$0</td></tr>
+                  <tr class="total-row"><td>Total ingresos</td><td class="num">12</td><td class="num">$684.000</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-card">
+              <h3>Gastos por categoría</h3>
+              <table>
+                <thead><tr><th>Categoría</th><th>Concepto</th><th class="num">Valor</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Servicio</strong></td><td>Insumos de manicura</td><td class="num">$38.000</td></tr>
+                  <tr><td><strong>Proveedores</strong></td><td>Recamier · shampoo</td><td class="num">$46.500</td></tr>
+                  <tr><td><strong>Gastos diarios</strong></td><td>Aseo y café</td><td class="num">$12.000</td></tr>
+                  <tr><td><strong>Arriendo</strong></td><td>—</td><td class="num">$0</td></tr>
+                  <tr class="total-row"><td>Total gastos</td><td></td><td class="num">$96.500</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-card">
+              <h3>Comisiones estimadas del día</h3>
+              <table>
+                <thead><tr><th>Especialista</th><th class="num">Ventas</th><th class="num">Comisión 55%</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Nico</strong></td><td class="num">$198.000</td><td class="num">$108.900</td></tr>
+                  <tr><td><strong>Marce</strong></td><td class="num">$315.000</td><td class="num">$173.250</td></tr>
+                  <tr><td><strong>Laura</strong></td><td class="num">$121.000</td><td class="num">$66.550</td></tr>
+                  <tr><td><strong>Danna</strong></td><td class="num">$50.000</td><td class="num">$27.500</td></tr>
+                  <tr class="total-row"><td>Total</td><td class="num">$684.000</td><td class="num">$376.200</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <aside class="cash-card">
+            <h3>Cuadre de caja</h3>
+            <p class="sub">Compara el sistema con el efectivo contado.</p>
+            <div class="cash-line"><span>Total sistema</span><strong>$684.000</strong></div>
+            <div class="cash-line"><span>Efectivo esperado</span><strong>$312.000</strong></div>
+            <div class="cash-line"><span>Gastos en efectivo</span><strong>−$96.500</strong></div>
+            <div class="cash-line" style="border-bottom:0"><span>Efectivo a contar</span><strong>$215.500</strong></div>
+            <div class="field" style="margin-top:14px"><label>Efectivo contado</label><input value="$215.500"></div>
+            <div class="cash-diff"><span>Diferencia</span><strong>$0</strong></div>
+            <div class="field"><label>Justificación (si hay diferencia)</label><input placeholder="Sin diferencia"></div>
+            <button class="btn btn-gold btn-block">Cerrar caja del día <svg class="icon"><use href="#i-check"/></svg></button>
+            <button class="btn btn-ghost btn-block" style="margin-top:8px"><svg class="icon"><use href="#i-note"/></svg> Imprimir resumen</button>
+            <p class="summary-note" style="margin-top:12px">Acción exclusiva de administradores y operarios. Queda registrada en la auditoría.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOTYPE NAV -->
+<nav class="proto-nav" aria-label="Pantallas del prototipo">
+  <a href="#home" data-screen="home">01 Inicio</a>
+  <a href="#services" data-screen="services">02 Servicios</a>
+  <a href="#booking-service" data-screen="booking-service">03 Reserva 1</a>
+  <a href="#booking-datetime" data-screen="booking-datetime">04 Reserva 2</a>
+  <a href="#booking-confirm" data-screen="booking-confirm">05 Reserva 3</a>
+  <a href="#admin-agenda" data-screen="admin-agenda">06 Agenda</a>
+  <a href="#admin-client" data-screen="admin-client">07 Ficha</a>
+  <a href="#admin-cash" data-screen="admin-cash">08 Caja</a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>

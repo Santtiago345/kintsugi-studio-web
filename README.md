@@ -5,7 +5,7 @@ Sitio web oficial, reserva de citas y sistema de gestión (**CRM + ERP ligero**)
 
 **Equipo:** Santiago Neuta · David Mateo Ballesteros
 **Cliente:** Kintsugi Studio
-**Estado:** descubrimiento cerrado · alcance y arquitectura definidos · implementación pendiente
+**Estado:** descubrimiento cerrado · alcance y arquitectura definidos · prototipo de interfaz disponible · implementación pendiente
 
 ---
 
@@ -190,6 +190,7 @@ El cliente espera el núcleo operativo en aproximadamente un mes. El roadmap com
 - [Respuestas del cliente](docs/RESPUESTAS-CLIENTE.md) — datos, alcance, reglas, roles y pendientes.
 - [Datos operativos de los Excel](docs/DATOS-EXCEL.md) — catálogo de 72 servicios, agenda, descansos, comisiones y liquidación.
 - [Plantillas y políticas de WhatsApp](docs/PLANTILLAS-WHATSAPP.md) — textos de reserva y asignación, variables y reglas.
+- [Diseño de interfaz](docs/DISENO-UI.md) — sistema visual, principios UX, pantallas y prototipo navegable.
 - [Brief del proyecto](docs/PROYECTO-KINTSUGI.md) — negocio, marca, actores, reglas y riesgos.
 - [Cuestionario de descubrimiento](docs/CUESTIONARIO-CLIENTE.md) — preguntas que originaron las respuestas.
 - [Alcance por etapas](docs/ALCANCE-MVP.md) — MVP, fases y criterios de aceptación.
@@ -262,9 +263,9 @@ Calendar, WhatsApp Cloud API, and a payment gateway adapter.
 
 ```
 .
-├── docs/          # Product documentation: client answers, brief, scope, stack, architecture
+├── docs/          # Product documentation: client answers, brief, scope, stack, data, design
+├── frontend/      # Next.js app (planned) + static UI prototype in frontend/prototype
 ├── backend/       # REST API, domain logic, database, tests (planned)
-├── frontend/      # Public website, client portal, professional portal (planned)
 ├── .github/       # CI/CD workflows (planned)
 └── README.md
 ```
