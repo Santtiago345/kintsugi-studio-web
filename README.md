@@ -187,6 +187,7 @@ El cliente espera el núcleo operativo en aproximadamente un mes. El roadmap com
 
 ### Documentación
 
+- [Estado y rumbo](docs/ESTADO-PROYECTO.md) — documento maestro: estado, inconsistencias, pendientes y plan.
 - [Respuestas del cliente](docs/RESPUESTAS-CLIENTE.md) — datos, alcance, reglas, roles y pendientes.
 - [Datos operativos de los Excel](docs/DATOS-EXCEL.md) — catálogo de 72 servicios, agenda, descansos, comisiones y liquidación.
 - [Plantillas y políticas de WhatsApp](docs/PLANTILLAS-WHATSAPP.md) — textos de reserva y asignación, variables y reglas.

@@ -10,6 +10,7 @@
 | [Cuestionario para el cliente](CUESTIONARIO-CLIENTE.md) | Preguntas de descubrimiento que originaron las respuestas |
 | [Alcance por etapas](ALCANCE-MVP.md) | MVP, fases 2 y 3, fuera de alcance, decisiones y criterios de aceptación |
 | [Decisión de stack](DECISION-STACK.md) | Alternativas técnicas evaluadas, matriz de decisión, decisión final, costos y configuración propuesta |
+| [Estado y rumbo](ESTADO-PROYECTO.md) | Documento maestro: estado, decisiones cerradas, inconsistencias, pendientes y plan de ejecución |
 
 ## Documentos previstos
 
