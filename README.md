@@ -49,7 +49,7 @@ comisiones, nómina, metas, conciliación y reportes).
 #### Primera versión — núcleo operativo
 
 - Sitio público con la identidad de marca.
-- Catálogo de servicios con precio, duración y profesional.
+- Catálogo de **72 servicios** con precio, duración y profesional (la duración está pendiente de confirmar).
 - Reserva real con disponibilidad por profesional y bloqueo de solapamientos.
 - Agenda diaria y semanal.
 - Ficha e historial del cliente con fotos, fórmulas y notas.
@@ -92,8 +92,14 @@ comisiones, nómina, metas, conciliación y reportes).
 
 | Regla | Detalle |
 |---|---|
+| Catálogo | **72 servicios** en 7 áreas: cabello, manicura y pedicura, adicionales de uñas, cejas y pestañas, depilación, maquillaje y promociones. Precios fijos, “desde” y rangos por uña. |
+| Horario | Agenda de **06:00 a 19:00**; las citas reales se mueven entre **08:00 y 19:00**. |
+| Descansos | El relleno negro de la agenda marca horas no disponibles: columna completa = día libre; negro parcial = horario reducido o festivo. Patrón variable por profesional. |
 | Comisiones | 55 % del total del servicio; 60 % cuando el profesional trae sus implementos. |
 | Liquidación | Semanal, por profesional. |
+| Auxilio de transporte | **$7.100 por día trabajado**, configurable por profesional. |
+| Ticket promedio | **$60.882** (octubre 2026, 175 líneas de servicio). |
+| Meta diaria | **$645.800** (pendiente confirmar si es diaria o semanal). |
 | Referidos | 5.000 COP de descuento por cliente referido; 20.000 COP al llegar a 3, dentro de un mes desde el último servicio. |
 | Cumpleaños | Recordatorio una semana antes y bono del 10 % redimible en la semana del cumpleaños. |
 | Historial | Guarda fotos, fórmulas, notas, alergias y preferencias por procedimiento. |
@@ -107,6 +113,9 @@ comisiones, nómina, metas, conciliación y reportes).
 | Inventario | Entradas, salidas y ajustes; sin alertas de stock mínimo en el MVP. |
 | Retención de datos | Un año, salvo obligación legal contable. |
 | Seguridad | 2FA para administradores y operarios; auditoría interna de cambios sensibles. |
+| Reserva | Reprogramación máximo **12 h antes**; tolerancia de espera **5 min**; garantía de **5 días**. |
+| Restricciones | No mascotas; no menores de **7 años**; el abono **no es reembolsable**. |
+| Precio | El valor cotizado puede variar si se agrega o modifica un servicio. |
 
 ### Roles y permisos
 
@@ -179,6 +188,8 @@ El cliente espera el núcleo operativo en aproximadamente un mes. El roadmap com
 ### Documentación
 
 - [Respuestas del cliente](docs/RESPUESTAS-CLIENTE.md) — datos, alcance, reglas, roles y pendientes.
+- [Datos operativos de los Excel](docs/DATOS-EXCEL.md) — catálogo de 72 servicios, agenda, descansos, comisiones y liquidación.
+- [Plantillas y políticas de WhatsApp](docs/PLANTILLAS-WHATSAPP.md) — textos de reserva y asignación, variables y reglas.
 - [Brief del proyecto](docs/PROYECTO-KINTSUGI.md) — negocio, marca, actores, reglas y riesgos.
 - [Cuestionario de descubrimiento](docs/CUESTIONARIO-CLIENTE.md) — preguntas que originaron las respuestas.
 - [Alcance por etapas](docs/ALCANCE-MVP.md) — MVP, fases y criterios de aceptación.
@@ -187,17 +198,22 @@ El cliente espera el núcleo operativo en aproximadamente un mes. El roadmap com
 
 ### Pendientes del cliente
 
-- [ ] Lista de servicios, precios y duraciones.
-- [ ] Horarios por profesional y días festivos.
+- [x] Lista de servicios y precios — recibida en el Excel (**72 servicios**).
+- [x] Horarios por profesional y días festivos — recibidos en la agenda.
+- [ ] Duraciones estándar por servicio y adicional.
+- [ ] Leyenda de colores de la agenda distinta al negro.
 - [ ] Manual de marca y logo vectorial.
 - [ ] Fotografías profesionales y autorizaciones de imagen.
 - [ ] Términos y condiciones.
-- [ ] Política de cancelación, reprogramación y no-show.
+- [ ] Política formal de cancelación, reprogramación y no-show.
 - [ ] RUT, cámara de comercio y certificado bancario para la pasarela.
 - [ ] Decisión sobre dominio y correo corporativo.
 - [ ] Confirmación de la prioridad de pagos y confirmación automática.
 - [ ] Ventana de recordatorios de cita.
 - [ ] Requisito de retención contable frente al año de retención de datos.
+- [ ] Confirmación del 60 % por implementos propios y del auxilio de transporte.
+- [ ] Confirmación del rol de YULIANA y ELIANA.
+- [ ] Confirmación de IVA y facturación.
 
 **Soporte y capacitación:** a cargo de Santiago y David, con sesiones para administradores y
 profesionales.
@@ -211,8 +227,17 @@ Official website, online booking, and management platform (**CRM + light ERP**) 
 
 - **One site, 200–230 clients per month** (approximately 8–10 appointments per day).
 - **Three faces:** public website, client portal, and internal admin panel.
-- **Confirmed core:** brand website, service catalog, real booking, agenda, client record,
-  duplicate detection, inventory, and daily dashboard.
+- **Confirmed core:** brand website, **72-service catalog**, real booking, agenda, client
+  record, duplicate detection, inventory, and daily dashboard.
+- **Operational facts:** agenda 06:00–19:00 with real appointments 08:00–19:00; black agenda
+  cells mean non-working time (full column = day off, partial = reduced hours or holiday);
+  average ticket 60,882 COP; daily goal 645,800 COP; 7,100 COP transport allowance per
+  worked day.
+- **Booking policies:** reschedule at least 12 hours ahead, 5-minute waiting tolerance, 5-day
+  guarantee, no pets, no children under 7, non-refundable deposit, quote may vary if the
+  service changes.
+- **WhatsApp templates:** booking summary for the client and service assignment for the
+  professional, plus variable and implementation rules.
 - **Phase 2:** automated reminders, segmentation, referrals, birthday benefit, gift cards,
   satisfaction survey, cash closing, expenses, commissions, providers, accounts payable, and
   monthly reports.

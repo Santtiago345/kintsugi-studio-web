@@ -1,8 +1,13 @@
 # Respuestas del cliente — Kintsugi Studio
 
-> Fuente: respuestas al cuestionario de descubrimiento.
-> Última actualización: 7 de noviembre de 2026.
+> Fuente: respuestas al cuestionario de descubrimiento, los libros Excel del negocio y los
+> mensajes de WhatsApp entregados por el cliente.
+> Última actualización: 9 de noviembre de 2026.
 > Cuando este documento contradiga un supuesto del brief, **prevalece este documento**.
+>
+> **Datos recibidos el 9 de noviembre:** el catálogo de servicios y precios, los horarios y
+> descansos por profesional, el modelo de liquidación y las plantillas de WhatsApp ya están en
+> [`DATOS-EXCEL.md`](DATOS-EXCEL.md) y [`PLANTILLAS-WHATSAPP.md`](PLANTILLAS-WHATSAPP.md).
 
 ## 1. Datos del negocio
 
@@ -42,12 +47,14 @@ El cliente pidió una plataforma **todo en uno**:
 | Agenda | Por profesional, con agenda completa para cada uno. |
 | Reserva | Debe ser real, con disponibilidad y bloqueo de horario. |
 | Calendario | Integración obligatoria con un servicio de calendario. |
-| Confirmación | Se marcó como **W** en el MoSCoW, aunque el cliente la pidió al inicio. |
+| Confirmación | Se marcó como **W** en el MoSCoW, aunque el cliente la pidió al inicio. El texto de confirmación ya está entregado. |
 | Recordatorios | Se marcaron como **C**; incluyen cumpleaños. |
 | Cumpleaños | Recordatorio una semana antes y bono del 10 % redimible en la semana del cumpleaños. |
-| Cancelación / no-show | Política pendiente de definir. |
-| Anticipación mínima | Pendiente de definir. |
+| Cancelación / no-show | **12 h mínimo** para reprogramar; abono no reembolsable; tolerancia de 5 min; garantía de 5 días. Ver [`PLANTILLAS-WHATSAPP.md`](PLANTILLAS-WHATSAPP.md). |
+| Anticipación mínima | 12 horas para reprogramar. La anticipación para reservar sigue pendiente. |
 | Walk-ins / sobreagenda | Pendiente de definir. |
+| Horario | Agenda de **06:00 a 19:00**; citas reales entre **08:00 y 19:00**. |
+| Descansos | Patrón semanal variable por profesional y excepciones por festivo; ver [`DATOS-EXCEL.md`](DATOS-EXCEL.md). |
 
 ## 4. Clientes y CRM
 
@@ -72,10 +79,11 @@ El cliente pidió una plataforma **todo en uno**:
 | Número | 313 206 5167. |
 | Correo | kintsugicn@gmail.com. |
 | Responsable | Nicolle. |
-| Plantillas | El cliente enviará muestras de los mensajes. |
+| Plantillas | **Recibidas:** resumen de reserva (cliente) y asignación de servicio (profesional). Ver [`PLANTILLAS-WHATSAPP.md`](PLANTILLAS-WHATSAPP.md). |
+| Políticas del mensaje | Reprogramación máximo 12 h antes; espera 5 min; garantía 5 días; no mascotas; no menores de 7 años; abono no reembolsable; el precio puede variar. |
 | Recordatorio de cita | Ventana pendiente de definir. |
 | Cumpleaños | Una semana antes, con bono del 10 %. |
-| Confirmación | El cliente la marcó como **W**; se aclarará antes de implementar. |
+| Confirmación | El cliente la marcó como **W**; el texto ya está entregado y se propone enviarlo en el MVP. |
 
 ## 6. Finanzas y ERP
 
@@ -88,6 +96,11 @@ El cliente pidió una plataforma **todo en uno**:
 | Pago a proveedores | Sí. |
 | Comisiones | 55 % del total del servicio; 60 % cuando el profesional trae sus implementos. |
 | Liquidación de comisiones | Semanal. |
+| Auxilio de transporte | **$7.100 por día trabajado**, variable por profesional. |
+| Anticipos | Avances al profesional descontados de la comisión semanal; no confundir con el abono del cliente. |
+| Deducciones | Gastos de tintes y consumos del profesional descontados en la liquidación. |
+| Ticket promedio observado | **$60.882** (octubre 2026, 175 líneas). |
+| Meta diaria | **$645.800** (pendiente confirmar si es diaria o semanal). |
 | Nómina | Dentro del sistema. |
 | Impuestos | Sí. |
 | Presupuesto y metas | Metas de venta mensuales. |
@@ -202,14 +215,21 @@ Reglas adicionales:
 
 ## 13. Pendientes del cliente
 
-- [ ] Lista de servicios, precios y duraciones.
-- [ ] Horarios por profesional y días festivos.
+- [x] Lista de servicios y precios — **recibida** en el Excel (72 conceptos).
+- [x] Horarios por profesional y días festivos — **recibidos** en la agenda.
+- [ ] Duraciones estándar por servicio y adicional (dato ausente en ambos Excel).
+- [ ] Leyenda de colores de la agenda distinta al negro.
 - [ ] Manual de marca y logo vectorial.
 - [ ] Fotografías profesionales y autorizaciones de imagen.
 - [ ] Términos y condiciones.
-- [ ] Política de cancelación, reprogramación y no-show.
+- [ ] Política formal de cancelación, reprogramación y no-show (el mensaje ya fija 12 h,
+-       5 min de espera, garantía de 5 días y abono no reembolsable).
 - [ ] RUT, cámara de comercio y certificado bancario (para la pasarela).
 - [ ] Decisión sobre dominio y correo corporativo.
 - [ ] Confirmación de la prioridad de pagos y confirmación automática.
 - [ ] Ventana de recordatorios de cita.
 - [ ] Requisito de retención contable frente al año de retención de datos.
+- [ ] Confirmar el 60 % por implementos propios y a quién aplica el auxilio de transporte.
+- [ ] Confirmar el rol de YULIANA y ELIANA.
+- [ ] Confirmar si los precios incluyen IVA y cómo se factura.
+- [ ] Completar la agenda de diciembre y las semanas faltantes de noviembre.

@@ -3,6 +3,8 @@
 | Documento | Contenido |
 |---|---|
 | [Respuestas del cliente](RESPUESTAS-CLIENTE.md) | Datos confirmados, alcance, reglas de negocio, roles, finanzas, MoSCoW y pendientes |
+| [Datos operativos de los Excel](DATOS-EXCEL.md) | Catálogo de 72 servicios, agenda, descansos, comisiones, liquidación y calidad de datos |
+| [Plantillas y políticas de WhatsApp](PLANTILLAS-WHATSAPP.md) | Textos de reserva y asignación, variables, políticas y reglas de implementación |
 | [Brief del proyecto](PROYECTO-KINTSUGI.md) | Negocio, identidad de marca, alcance, actores, reglas de negocio, supuestos y riesgos |
 | [Cuestionario para el cliente](CUESTIONARIO-CLIENTE.md) | Preguntas de descubrimiento que originaron las respuestas |
 | [Alcance por etapas](ALCANCE-MVP.md) | MVP, fases 2 y 3, fuera de alcance, decisiones y criterios de aceptación |
