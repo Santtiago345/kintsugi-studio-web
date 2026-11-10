@@ -4,7 +4,7 @@
 > **Opción elegida: B — Django 5.2 + DRF + Next.js + PostgreSQL + Django Admin/Unfold.**
 >
 > La decisión se basa en las respuestas del cliente recogidas en
-> [`RESPUESTAS-CLIENTE.md`](RESPUESTAS-CLIENTE.md).
+> [`RESPUESTAS-CLIENTE.md`](../discovery/RESPUESTAS-CLIENTE.md).
 
 ## 1. Contexto
 

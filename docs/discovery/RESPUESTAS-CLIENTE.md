@@ -7,7 +7,7 @@
 >
 > **Datos recibidos el 9 de noviembre:** el catálogo de servicios y precios, los horarios y
 > descansos por profesional, el modelo de liquidación y las plantillas de WhatsApp ya están en
-> [`DATOS-EXCEL.md`](DATOS-EXCEL.md) y [`PLANTILLAS-WHATSAPP.md`](PLANTILLAS-WHATSAPP.md).
+> [`DATOS-EXCEL.md`](../operations/DATOS-EXCEL.md) y [`PLANTILLAS-WHATSAPP.md`](../operations/PLANTILLAS-WHATSAPP.md).
 
 ## 1. Datos del negocio
 
@@ -50,11 +50,11 @@ El cliente pidió una plataforma **todo en uno**:
 | Confirmación | Se marcó como **W** en el MoSCoW, aunque el cliente la pidió al inicio. El texto de confirmación ya está entregado. |
 | Recordatorios | Se marcaron como **C**; incluyen cumpleaños. |
 | Cumpleaños | Recordatorio una semana antes y bono del 10 % redimible en la semana del cumpleaños. |
-| Cancelación / no-show | **12 h mínimo** para reprogramar; abono no reembolsable; tolerancia de 5 min; garantía de 5 días. Ver [`PLANTILLAS-WHATSAPP.md`](PLANTILLAS-WHATSAPP.md). |
+| Cancelación / no-show | **12 h mínimo** para reprogramar; abono no reembolsable; tolerancia de 5 min; garantía de 5 días. Ver [`PLANTILLAS-WHATSAPP.md`](../operations/PLANTILLAS-WHATSAPP.md). |
 | Anticipación mínima | 12 horas para reprogramar. La anticipación para reservar sigue pendiente. |
 | Walk-ins / sobreagenda | Pendiente de definir. |
 | Horario | Agenda de **06:00 a 19:00**; citas reales entre **08:00 y 19:00**. |
-| Descansos | Patrón semanal variable por profesional y excepciones por festivo; ver [`DATOS-EXCEL.md`](DATOS-EXCEL.md). |
+| Descansos | Patrón semanal variable por profesional y excepciones por festivo; ver [`DATOS-EXCEL.md`](../operations/DATOS-EXCEL.md). |
 
 ## 4. Clientes y CRM
 
@@ -79,7 +79,7 @@ El cliente pidió una plataforma **todo en uno**:
 | Número | 313 206 5167. |
 | Correo | kintsugicn@gmail.com. |
 | Responsable | Nicolle. |
-| Plantillas | **Recibidas:** resumen de reserva (cliente) y asignación de servicio (profesional). Ver [`PLANTILLAS-WHATSAPP.md`](PLANTILLAS-WHATSAPP.md). |
+| Plantillas | **Recibidas:** resumen de reserva (cliente) y asignación de servicio (profesional). Ver [`PLANTILLAS-WHATSAPP.md`](../operations/PLANTILLAS-WHATSAPP.md). |
 | Políticas del mensaje | Reprogramación máximo 12 h antes; espera 5 min; garantía 5 días; no mascotas; no menores de 7 años; abono no reembolsable; el precio puede variar. |
 | Recordatorio de cita | Ventana pendiente de definir. |
 | Cumpleaños | Una semana antes, con bono del 10 %. |

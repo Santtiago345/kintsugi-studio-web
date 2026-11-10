@@ -5,10 +5,10 @@
 > detecta huecos y fija el plan de ejecución.
 >
 > **Jerarquía de fuentes de verdad**
-> 1. Negocio y alcance: [`../README.md`](../README.md) y [`RESPUESTAS-CLIENTE.md`](RESPUESTAS-CLIENTE.md).
-> 2. Datos operativos: [`DATOS-EXCEL.md`](DATOS-EXCEL.md).
-> 3. Comunicaciones y políticas: [`PLANTILLAS-WHATSAPP.md`](PLANTILLAS-WHATSAPP.md).
-> 4. Técnica: [`DECISION-STACK.md`](DECISION-STACK.md).
+> 1. Negocio y alcance: [`../README.md`](../../README.md) y [`RESPUESTAS-CLIENTE.md`](../discovery/RESPUESTAS-CLIENTE.md).
+> 2. Datos operativos: [`DATOS-EXCEL.md`](../operations/DATOS-EXCEL.md).
+> 3. Comunicaciones y políticas: [`PLANTILLAS-WHATSAPP.md`](../operations/PLANTILLAS-WHATSAPP.md).
+> 4. Técnica: [`DECISION-STACK.md`](../architecture/DECISION-STACK.md).
 > 5. Ejecución: este documento.
 >
 > Si algo entra en conflicto, prevalecen (1) y (4); este documento debe actualizarse.

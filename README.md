@@ -185,18 +185,38 @@ Next.js (sitio público + portal)   Django Admin (back-office)
 El cliente espera el núcleo operativo en aproximadamente un mes. El roadmap completo es de
 **12–18 semanas**; prometer el ERP completo en un mes no es realista.
 
+### Estructura del repositorio
+
+```
+.
+├── README.md          # Único README del repositorio: propósito, alcance y guía
+├── LICENSE            # Aviso de propiedad y activos de marca
+├── CONTRIBUTING.md    # Convenciones de ramas, commits y documentación
+├── CHANGELOG.md       # Historial de cambios relevantes
+├── docs/              # Documentación del producto (ver docs/INDEX.md)
+│   ├── INDEX.md
+│   ├── product/       # Estado, alcance y brief
+│   ├── discovery/     # Cuestionario y respuestas del cliente
+│   ├── operations/    # Datos de Excel y plantillas de WhatsApp
+│   └── architecture/  # Decisiones de stack y arquitectura
+├── backend/           # API REST, dominio, base de datos y pruebas (planificado)
+├── frontend/          # Sitio público, portal del cliente y portal profesional (planificado)
+└── .github/           # CI/CD y plantillas de colaboración (planificado)
+```
+
 ### Documentación
 
-- [Estado y rumbo](docs/ESTADO-PROYECTO.md) — documento maestro: estado, inconsistencias, pendientes y plan.
-- [Respuestas del cliente](docs/RESPUESTAS-CLIENTE.md) — datos, alcance, reglas, roles y pendientes.
-- [Datos operativos de los Excel](docs/DATOS-EXCEL.md) — catálogo de 72 servicios, agenda, descansos, comisiones y liquidación.
-- [Plantillas y políticas de WhatsApp](docs/PLANTILLAS-WHATSAPP.md) — textos de reserva y asignación, variables y reglas.
+El índice completo está en [`docs/INDEX.md`](docs/INDEX.md).
+
+- [Estado y rumbo](docs/product/ESTADO-PROYECTO.md) — documento maestro: estado, inconsistencias, pendientes y plan.
+- [Alcance por etapas](docs/product/ALCANCE-MVP.md) — MVP, fases y criterios de aceptación.
+- [Brief del proyecto](docs/product/PROYECTO-KINTSUGI.md) — negocio, marca, actores, reglas y riesgos.
 - [Diseño de interfaz](docs/DISENO-UI.md) — sistema visual, principios UX, pantallas y prototipo navegable.
-- [Brief del proyecto](docs/PROYECTO-KINTSUGI.md) — negocio, marca, actores, reglas y riesgos.
-- [Cuestionario de descubrimiento](docs/CUESTIONARIO-CLIENTE.md) — preguntas que originaron las respuestas.
-- [Alcance por etapas](docs/ALCANCE-MVP.md) — MVP, fases y criterios de aceptación.
-- [Decisión de stack](docs/DECISION-STACK.md) — alternativas, matriz y decisión final.
-- [Índice de documentación](docs/README.md).
+- [Respuestas del cliente](docs/discovery/RESPUESTAS-CLIENTE.md) — datos, alcance, reglas, roles y pendientes.
+- [Cuestionario de descubrimiento](docs/discovery/CUESTIONARIO-CLIENTE.md) — preguntas que originaron las respuestas.
+- [Datos operativos de los Excel](docs/operations/DATOS-EXCEL.md) — catálogo de 72 servicios, agenda, descansos, comisiones y liquidación.
+- [Plantillas y políticas de WhatsApp](docs/operations/PLANTILLAS-WHATSAPP.md) — textos de reserva y asignación, variables y reglas.
+- [Decisión de stack](docs/architecture/DECISION-STACK.md) — alternativas, matriz y decisión final.
 
 ### Pendientes del cliente
 
@@ -264,11 +284,22 @@ Calendar, WhatsApp Cloud API, and a payment gateway adapter.
 
 ```
 .
-├── docs/          # Product documentation: client answers, brief, scope, stack, data, design
-├── frontend/      # Next.js app (planned) + static UI prototype in frontend/prototype
-├── backend/       # REST API, domain logic, database, tests (planned)
-├── .github/       # CI/CD workflows (planned)
-└── README.md
+.
+├── README.md          # Único README del repositorio: propósito, alcance y guía
+├── LICENSE            # Aviso de propiedad y activos de marca
+├── CONTRIBUTING.md    # Convenciones de ramas, commits y documentación
+├── CHANGELOG.md       # Historial de cambios relevantes
+├── docs/              # Documentación del producto (ver docs/INDEX.md)
+│   ├── INDEX.md
+│   ├── product/       # Estado, alcance y brief
+│   ├── discovery/     # Cuestionario y respuestas del cliente
+│   ├── operations/    # Datos de Excel y plantillas de WhatsApp
+│   ├── architecture/  # Decisiones de stack y arquitectura
+│   ├── assets/        # Capturas y recursos de documentación
+│   └── DISENO-UI.md   # Sistema visual y prototipo
+├── frontend/          # App Next.js (planificado) + prototipo en frontend/prototype
+├── backend/           # API REST, dominio, base de datos y pruebas (planificado)
+└── .github/           # CI/CD y plantillas de colaboración (planificado)
 ```
 
 ### Roadmap

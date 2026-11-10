@@ -4,7 +4,7 @@
 > No es una propuesta comercial: sirve para decidir qué entra primero.
 >
 > **Actualización (10 de noviembre de 2026):** este documento se alineó con el alcance
-> confirmado del [README](../README.md) y de [`RESPUESTAS-CLIENTE.md`](RESPUESTAS-CLIENTE.md).
+> confirmado del [README](../../README.md) y de [`RESPUESTAS-CLIENTE.md`](../discovery/RESPUESTAS-CLIENTE.md).
 > Antes describía pagos y cierre de caja dentro de la Fase 1; ambos quedaron fuera del MVP.
 > Fases definitivas:
 > **1)** sitio, catálogo, reserva real, agenda, CRM e inventario;

@@ -2,8 +2,8 @@
 
 > Fuente principal: manual de identidad visual de Kintsugi Studio (documento del cliente).
 > Estado: **descubrimiento cerrado**. Las respuestas confirmadas están en
-> [`RESPUESTAS-CLIENTE.md`](RESPUESTAS-CLIENTE.md); si hay conflicto, prevalece ese documento
-> y el [README](../README.md). Este brief conserva el contexto y los supuestos iniciales.
+> [`RESPUESTAS-CLIENTE.md`](../discovery/RESPUESTAS-CLIENTE.md); si hay conflicto, prevalece ese documento
+> y el [README](../../README.md). Este brief conserva el contexto y los supuestos iniciales.
 
 ## 1. El negocio
 
@@ -156,7 +156,7 @@ proveedores. En una frase: **CRM + ERP ligero para el salón**.
 
 ## 7. Decisiones que faltan
 
-El detalle está en [`CUESTIONARIO-CLIENTE.md`](CUESTIONARIO-CLIENTE.md). Las decisiones
+El detalle está en [`CUESTIONARIO-CLIENTE.md`](../discovery/CUESTIONARIO-CLIENTE.md). Las decisiones
 que bloquean el diseño son:
 
 1. Pasarela de pago y porcentaje de anticipo.

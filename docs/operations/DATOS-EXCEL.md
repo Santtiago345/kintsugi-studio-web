@@ -8,7 +8,7 @@
 > **Fecha del análisis:** 9 de noviembre de 2026.
 >
 > Este documento reemplaza los supuestos de servicios, precios, horarios y comisiones que
-> estaban pendientes en [`RESPUESTAS-CLIENTE.md`](RESPUESTAS-CLIENTE.md).
+> estaban pendientes en [`RESPUESTAS-CLIENTE.md`](../discovery/RESPUESTAS-CLIENTE.md).
 
 ## 1. Resumen ejecutivo
 
