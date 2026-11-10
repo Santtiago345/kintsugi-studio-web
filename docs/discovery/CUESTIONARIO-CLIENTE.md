@@ -262,8 +262,8 @@ Marquen cada módulo con **M** (must: indispensable en la primera versión),
 
 ## Documentos que nos ayudaría recibir
 
-- [ ] Lista de servicios, precios y duraciones.
-- [ ] Horarios por profesional y días festivos.
+- [x] Lista de servicios, precios y duraciones — recibida (duraciones completas el 10/11/2026).
+- [x] Horarios por profesional y días festivos — recibidos en la agenda.
 - [ ] Manual de identidad visual y logo vectorial.
 - [ ] Fotografías profesionales y autorizaciones de imagen.
 - [ ] Políticas de cancelación, devoluciones y tratamiento de datos.

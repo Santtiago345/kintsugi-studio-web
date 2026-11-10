@@ -40,7 +40,7 @@ es el [`README.md`](../README.md) de la raíz.
 
 | Documento | Contenido |
 |---|---|
-| [Datos operativos de los Excel](operations/DATOS-EXCEL.md) | Catálogo de 72 servicios, agenda, descansos, comisiones y liquidación. |
+| [Datos operativos de los Excel](operations/DATOS-EXCEL.md) | Catálogo de 72 servicios con duraciones, agenda, descansos, comisiones y liquidación. |
 | [Plantillas y políticas de WhatsApp](operations/PLANTILLAS-WHATSAPP.md) | Textos de reserva y asignación, variables, políticas y reglas de implementación. |
 
 ### Arquitectura

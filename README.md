@@ -49,7 +49,7 @@ comisiones, nómina, metas, conciliación y reportes).
 #### Primera versión — núcleo operativo
 
 - Sitio público con la identidad de marca.
-- Catálogo de **72 servicios** con precio, duración y profesional (la duración está pendiente de confirmar).
+- Catálogo de **72 servicios** con precio, duración y profesional (duración estándar recibida el 10/11/2026; faltan adicionales de uñas y maquillaje social/quinceañera).
 - Reserva real con disponibilidad por profesional y bloqueo de solapamientos.
 - Agenda diaria y semanal.
 - Ficha e historial del cliente con fotos, fórmulas y notas.
@@ -216,7 +216,7 @@ El índice completo está en [`docs/INDEX.md`](docs/INDEX.md).
 - [Diseño de interfaz](docs/design/DISENO-UI.md) — sistema visual, principios UX, pantallas y prototipo navegable.
 - [Respuestas del cliente](docs/discovery/RESPUESTAS-CLIENTE.md) — datos, alcance, reglas, roles y pendientes.
 - [Cuestionario de descubrimiento](docs/discovery/CUESTIONARIO-CLIENTE.md) — preguntas que originaron las respuestas.
-- [Datos operativos de los Excel](docs/operations/DATOS-EXCEL.md) — catálogo de 72 servicios, agenda, descansos, comisiones y liquidación.
+- [Datos operativos de los Excel](docs/operations/DATOS-EXCEL.md) — catálogo de 72 servicios con duraciones, agenda, descansos, comisiones y liquidación.
 - [Plantillas y políticas de WhatsApp](docs/operations/PLANTILLAS-WHATSAPP.md) — textos de reserva y asignación, variables y reglas.
 - [Decisión de stack](docs/architecture/DECISION-STACK.md) — alternativas, matriz y decisión final.
 
@@ -224,7 +224,9 @@ El índice completo está en [`docs/INDEX.md`](docs/INDEX.md).
 
 - [x] Lista de servicios y precios — recibida en el Excel (**72 servicios**).
 - [x] Horarios por profesional y días festivos — recibidos en la agenda.
-- [ ] Duraciones estándar por servicio y adicional.
+- [x] Duraciones estándar por servicio — recibidas el 10/11/2026 para todo el catálogo, salvo
+  adicionales de uñas y maquillaje social/quinceañera.
+- [ ] Duraciones de adicionales de uñas y de maquillaje social/quinceañera/novia.
 - [ ] Leyenda de colores de la agenda distinta al negro.
 - [ ] Manual de marca y logo vectorial.
 - [ ] Fotografías profesionales y autorizaciones de imagen.

@@ -41,7 +41,9 @@ Las capturas de referencia están en [`docs/assets/ui/`](../../docs/assets/ui/).
 
 - Es un prototipo de diseño, no la aplicación funcional.
 - Los datos son de ejemplo; no hay backend ni persistencia.
-- Las duraciones de los servicios son supuestos hasta que la clienta las confirme.
+- Las duraciones de los servicios provienen del cliente (10/11/2026) y están en
+  [`docs/operations/DATOS-EXCEL.md`](../../docs/operations/DATOS-EXCEL.md); el prototipo usa
+  valores de ejemplo.
 - La fotografía se representa con placeholders abstractos; producción usará fotografía
   autorizada de antes y después.
 

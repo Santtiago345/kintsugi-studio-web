@@ -10,10 +10,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 - Estructura inicial de carpetas de documentación: `product/`, `discovery/`, `operations/`,
   `architecture/` y `design/`.
 - Documento maestro de estado y rumbo (`docs/product/ESTADO-PROYECTO.md`).
+- Duraciones estándar por servicio en la columna `Duración` del catálogo
+  (`docs/operations/DATOS-EXCEL.md`), recibidas del cliente el 10/11/2026.
 - `LICENSE`, `CONTRIBUTING.md` y `.editorconfig`.
 
 ### Cambiado
 
+- El catálogo de servicios ahora registra la duración por servicio; los rangos se modelan como
+  mínimo y máximo y la agenda reserva el límite superior.
+- Se documentaron como pendientes las duraciones de adicionales de uñas y de maquillaje
+  social/quinceañera/novia.
 - `docs/README.md` se renombró a `docs/INDEX.md` para dejar un único `README.md` en la raíz.
 - `docs/DISENO-UI.md` se movió a `docs/design/DISENO-UI.md`.
 - `frontend/prototype/README.md` se renombró a `frontend/prototype/GUIA.md` para mantener un

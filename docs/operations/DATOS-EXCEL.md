@@ -6,6 +6,7 @@
 > **colores de relleno**. El detalle celda a celda y los nombres de clientes se guardan solo en
 > `_local/analysis/` (fuera del repositorio) por privacidad.
 > **Fecha del análisis:** 9 de noviembre de 2026.
+> **Actualización:** duraciones de servicios integradas el 10 de noviembre de 2026.
 >
 > Este documento reemplaza los supuestos de servicios, precios, horarios y comisiones que
 > estaban pendientes en [`RESPUESTAS-CLIENTE.md`](../discovery/RESPUESTAS-CLIENTE.md).
@@ -16,6 +17,7 @@
 |---|---|
 | Catálogo de servicios | **72 conceptos** de precio en 7 áreas: cabello, manicura y pedicura, adicionales de uñas, cejas y pestañas, depilación, maquillaje y promociones. |
 | Tipos de precio | **Fijo**, **desde** y **rango** (rango por uña o por diseño). |
+| Duraciones | Enviadas por el cliente el **10 de noviembre de 2026**; están en la columna `Duración`. Quedan pendientes los adicionales de uñas y el maquillaje social/quinceañera. |
 | Agenda | 5 columnas por día (una por profesional), franjas de **06:00 a 19:00**; las citas reales se mueven entre **08:00 y 19:00**. |
 | Profesionales | **NICO, MARCE, LAURA y DANNA** en la operación de octubre; **YULIANA** aparece en octubre/noviembre y **ELIANA** en septiembre, sin citas registradas. |
 | Descanso | El **relleno negro** marca horas no disponibles: columna completa negra = día libre; negro parcial = horario reducido o festivo. |
@@ -67,109 +69,120 @@
 
 ### 3.2 Cabello
 
-| Servicio | Tipo | Precio | Notas |
-|---|---|---:|---|
-| SHAMPOO STANDAR | fijo | $5.000 | 2 SH + acondicionador |
-| CEPILLADO (SIN SHAMPOO) | desde | Desde $22.000 | Trayendo el cabello limpio |
-| SHAAMPOO PROFESIONAL | fijo | $8.000 | 3 shampoos + mascarilla |
-| BALAYAGE | desde | Desde $270.000 | — |
-| CORTE O DESPUNTE SIN SHAMPOO (NO ESTRUCTURAL) | fijo | $20.000 | — |
-| CORRECCIÓN DE COLOR | desde | Desde $290.000 | — |
-| CORTE ESTRUCTURAL | fijo | $45.000 | Shampoo + acondicionador + corte + cepillado |
-| MONTAJE EXPRESS | desde | Desde $160.000 | Solo mechas + shampoo profesional + mascarilla + cepillado |
-| CORTE BORDADO | fijo | $65.000 | Shampoo profesional + acondicionador + cepillado + planchado + corte bordado |
-| TONO PLANO | desde | Desde $130.000 | Cubre canas o tinte plano + shampoo + mascarilla + corte o despunte + cepillado |
-| REPOLARIZACIÓN BYSPRO | fijo | $60.000 | Shampoo profesional + cóctel BySpro + vaporozono + cepillado |
-| APLICACIÓN DE TINTE | desde | Desde $45.000 | Tinte traído por la clienta + shampoo profesional + sellado técnico |
-| HIDRATACIÓN DELUXE | desde | Desde $80.000 | Exfoliación capilar + shampoo + mascarilla |
-| REFRESH DE COLOR CON MATIZANTE | fijo | $20.000 | Shampoo profesional + matizante + mascarilla |
-| ENSAMBLE PROTEÍNICO BTX | desde | Desde $150.000 | Shampoo Recamier paso 1 + BTX + paso 3 Recamier |
-| REFRESH DE COLOR CON TINTE | fijo | $35.000 | Shampoo profesional + tinte + mascarilla |
-| ALISADO PROGRESIVO | desde | Desde $150.000 | Shampoo Recamier paso 1 + keratina + paso 3 |
-| PEINADO QUINCEAÑERA / NOVIA | desde | Desde $150.000 | — |
-| PAQUETE QUINCE / NOVIA (MAQUILLAJE + PEINADO) | desde | Desde $280.000 | — |
-| PAQUETE INVITADAS (MAQUILLAJE + PEINADO) | desde | Desde $170.000 | — |
-| A PARTIR DE $250.000, MAQUILLAJE GRATIS | promo | $250.000 | Promoción de cabello |
+| Servicio | Tipo | Precio | Duración | Notas |
+|---|---|---:|---:|---|
+| SHAMPOO STANDAR | fijo | $5.000 | 10 min | 2 SH + acondicionador |
+| CEPILLADO (SIN SHAMPOO) | desde | Desde $22.000 | 40 min | Trayendo el cabello limpio |
+| SHAAMPOO PROFESIONAL | fijo | $8.000 | 10 min | 3 shampoos + mascarilla |
+| BALAYAGE | desde | Desde $270.000 | 5–7 h (variable) | — |
+| CORTE O DESPUNTE SIN SHAMPOO (NO ESTRUCTURAL) | fijo | $20.000 | 15 min | — |
+| CORRECCIÓN DE COLOR | desde | Desde $290.000 | 5–8 h (variable) | — |
+| CORTE ESTRUCTURAL | fijo | $45.000 | 40 min | Shampoo + acondicionador + corte + cepillado |
+| MONTAJE EXPRESS | desde | Desde $160.000 | 3–5 h (variable) | Solo mechas + shampoo profesional + mascarilla + cepillado |
+| CORTE BORDADO | fijo | $65.000 | 1 h | Shampoo profesional + acondicionador + cepillado + planchado + corte bordado |
+| TONO PLANO | desde | Desde $130.000 | 2–4 h (variable) | Cubre canas o tinte plano + shampoo + mascarilla + corte o despunte + cepillado |
+| REPOLARIZACIÓN BYSPRO | fijo | $60.000 | 1 h 10 min | Shampoo profesional + cóctel BySpro + vaporozono + cepillado |
+| APLICACIÓN DE TINTE | desde | Desde $45.000 | 1 h 30 min | Tinte traído por la clienta + shampoo profesional + sellado técnico |
+| HIDRATACIÓN DELUXE | desde | Desde $80.000 | 1 h | Exfoliación capilar + shampoo + mascarilla |
+| REFRESH DE COLOR CON MATIZANTE | fijo | $20.000 | 20 min | Shampoo profesional + matizante + mascarilla |
+| ENSAMBLE PROTEÍNICO BTX | desde | Desde $150.000 | 2–3 h (variable) | Shampoo Recamier paso 1 + BTX + paso 3 Recamier |
+| REFRESH DE COLOR CON TINTE | fijo | $35.000 | 25 min | Shampoo profesional + tinte + mascarilla |
+| ALISADO PROGRESIVO | desde | Desde $150.000 | 3–5 h (variable) | Shampoo Recamier paso 1 + keratina + paso 3 |
+| PEINADO QUINCEAÑERA / NOVIA | desde | Desde $150.000 | 1–2 h | — |
+| PAQUETE QUINCE / NOVIA (MAQUILLAJE + PEINADO) | desde | Desde $280.000 | 3–5 h | — |
+| PAQUETE INVITADAS (MAQUILLAJE + PEINADO) | desde | Desde $170.000 | 3–4 h | — |
+| A PARTIR DE $250.000, MAQUILLAJE GRATIS | promo | $250.000 | No aplica (promo) | Promoción de cabello |
 
 ### 3.3 Manicura y pedicura
 
-| Servicio | Tipo | Precio |
-|---|---|---:|
-| CAMBIO DE ESMALTE TRADICIONAL | fijo | $10.000 |
-| SEMIPERMANENTE | desde | Desde $45.000 |
-| CAMBIO DE ESMALTE SECADO RÁPIDO | fijo | $13.000 |
-| PEDICURA SEMIPERMANENTE | desde | Desde $48.000 |
-| MANICURA TRADICIONAL BÁSICA | fijo | $20.000 |
-| BAÑO DE RUBBER-DIPPING | desde | Desde $57.000 |
-| MANICURA TRADICIONAL GEL EVOLUTION | fijo | $24.000 |
-| RETOQUE SISTEMAS | desde | Desde $68.000 |
-| LIMPIEZA BÁSICA MANOS | fijo | $14.000 |
-| KAPPING POLIGEL-ACRÍLICO | desde | Desde $70.000 |
-| LIMPIEZA BÁSICA DE PIES | fijo | $20.000 |
-| SOFT GEL | desde | Desde $88.000 |
-| PEDICURA GEL EVOLUTION | fijo | $27.000 |
-| TIPS POLIGEL-ACRÍLICO HASTA LARGO #2 | desde | Desde $90.000 |
-| MANICURA DE HOMBRE TRADICIONAL | fijo | $19.000 |
-| ACRI-PIES | desde | Desde $90.000 |
-| ESCULPIDAS POLIGEL-ACRÍLICO HASTA LARGO #2 | desde | Desde $100.000 |
-| SEMIPERMANENTE DE HOMBRE | fijo | $35.000 |
+| Servicio | Tipo | Precio | Duración |
+|---|---|---:|---:|
+| CAMBIO DE ESMALTE TRADICIONAL | fijo | $10.000 | 30 min |
+| SEMIPERMANENTE | desde | Desde $45.000 | 1 h 40 min |
+| CAMBIO DE ESMALTE SECADO RÁPIDO | fijo | $13.000 | 30 min |
+| PEDICURA SEMIPERMANENTE | desde | Desde $48.000 | 1 h 40 min |
+| MANICURA TRADICIONAL BÁSICA | fijo | $20.000 | 1 h |
+| BAÑO DE RUBBER-DIPPING | desde | Desde $57.000 | 2 h |
+| MANICURA TRADICIONAL GEL EVOLUTION | fijo | $24.000 | 1 h |
+| RETOQUE SISTEMAS | desde | Desde $68.000 | 2 h |
+| LIMPIEZA BÁSICA MANOS | fijo | $14.000 | 20 min |
+| KAPPING POLIGEL-ACRÍLICO | desde | Desde $70.000 | 2 h |
+| LIMPIEZA BÁSICA DE PIES | fijo | $20.000 | 40 min |
+| SOFT GEL | desde | Desde $88.000 | 2 h 30 min |
+| PEDICURA GEL EVOLUTION | fijo | $27.000 | 1 h |
+| TIPS POLIGEL-ACRÍLICO HASTA LARGO #2 | desde | Desde $90.000 | 3 h |
+| MANICURA DE HOMBRE TRADICIONAL | fijo | $19.000 | 1 h |
+| ACRI-PIES | desde | Desde $90.000 | 2 h 30 min |
+| ESCULPIDAS POLIGEL-ACRÍLICO HASTA LARGO #2 | desde | Desde $100.000 | 2 h 40 min |
+| SEMIPERMANENTE DE HOMBRE | fijo | $35.000 | 1 h |
 
 ### 3.4 Adicionales de uñas
 
-| Servicio | Tipo | Precio | Notas |
-|---|---|---:|---|
-| RETIRO SISTEMA KINTSUGI | rango | $20.000 | Si se aplica un nuevo sistema a partir de semipermanente, cuesta $15.000 |
-| RETIRO SISTEMA OTRO LUGAR | rango | $25.000 | Si se aplica un nuevo sistema a partir de semipermanente, cuesta $20.000 |
-| RETIRO SEMIPERMANENTE | rango | $7.000 | — |
-| EXTRA POR LARGO DE SISTEMAS | rango | $7.000 por uña | — |
-| REPARACIÓN POR UÑA | rango | $3.000 por uña | — |
-| ALARGAMIENTO POR UÑA, LARGO #3 EN ADELANTE | rango | $7.000 por uña | — |
-| CHARMS | rango | $2.000–$7.000 por uña | Valor por cada uña |
-| PEDRERÍA | rango | $1.000–$15.000 por uña | Depende del diseño; la decoración básica está incluida |
-| DECORACIÓN ABSTRACTA | rango | $5.000–$10.000 por uña | Todos los procesos incluyen una decoración sencilla |
-| RELIEVES | rango | $2.000–$15.000 por uña | Francés sin texturas, en tono plano |
-| ARTE 3D | rango | $5.000–$30.000 por uña | Tono plano |
-| EFECTO ESPEJO | rango | $1.000–$3.000 por uña | Una uña decorada: pedrería básica, blooming, trazos o flores básicas, difuminado de un tono |
-| EFECTO AURORA | rango | $1.000 por uña | — |
-| OJO DE GATO | rango | $1.000–$3.000 por uña | — |
-| NAIL ART | rango | $5.000–$30.000 por uña | — |
+| Servicio | Tipo | Precio | Duración | Notas |
+|---|---|---:|---:|---|
+| RETIRO SISTEMA KINTSUGI | rango | $20.000 | 25 min | Si se aplica un nuevo sistema a partir de semipermanente, cuesta $15.000 |
+| RETIRO SISTEMA OTRO LUGAR | rango | $25.000 | 25 min | Si se aplica un nuevo sistema a partir de semipermanente, cuesta $20.000 |
+| RETIRO SEMIPERMANENTE | rango | $7.000 | 15 min | — |
+| EXTRA POR LARGO DE SISTEMAS | rango | $7.000 por uña | Pendiente | — |
+| REPARACIÓN POR UÑA | rango | $3.000 por uña | Pendiente | — |
+| ALARGAMIENTO POR UÑA, LARGO #3 EN ADELANTE | rango | $7.000 por uña | Pendiente | — |
+| CHARMS | rango | $2.000–$7.000 por uña | Pendiente | Valor por cada uña |
+| PEDRERÍA | rango | $1.000–$15.000 por uña | Pendiente | Depende del diseño; la decoración básica está incluida |
+| DECORACIÓN ABSTRACTA | rango | $5.000–$10.000 por uña | Pendiente | Todos los procesos incluyen una decoración sencilla |
+| RELIEVES | rango | $2.000–$15.000 por uña | Pendiente | Francés sin texturas, en tono plano |
+| ARTE 3D | rango | $5.000–$30.000 por uña | Pendiente | Tono plano |
+| EFECTO ESPEJO | rango | $1.000–$3.000 por uña | Pendiente | Una uña decorada: pedrería básica, blooming, trazos o flores básicas, difuminado de un tono |
+| EFECTO AURORA | rango | $1.000 por uña | Pendiente | — |
+| OJO DE GATO | rango | $1.000–$3.000 por uña | Pendiente | — |
+| NAIL ART | rango | $5.000–$30.000 por uña | Pendiente | — |
 
 ### 3.5 Cejas y pestañas
 
-| Servicio | Tipo | Precio |
-|---|---|---:|
-| DEPILACIÓN CON CERA CEJAS | fijo | $20.000 |
-| DEPILACIÓN BOZO | fijo | $10.000 |
-| CEJAS / BOZO | fijo | $25.000 |
-| DEPILACIÓN CEJAS HILO | fijo | $25.000 |
-| DEPILACIÓN BOZO HILO | fijo | $15.000 |
-| CEJAS / BOZO HILO | fijo | $35.000 |
-| LAMINADO DE CEJAS | fijo | $50.000 |
-| LIFTING DE PESTAÑAS | fijo | $70.000 |
-| PESTAÑAS PUNTO A PUNTO | fijo | $35.000 |
-| CEJAS EN HENNA CON CERA | fijo | $40.000 |
-| CEJAS EN HENNA CON HILO | fijo | $45.000 |
+| Servicio | Tipo | Precio | Duración |
+|---|---|---:|---:|
+| DEPILACIÓN CON CERA CEJAS | fijo | $20.000 | 25 min |
+| DEPILACIÓN BOZO | fijo | $10.000 | 10 min |
+| CEJAS / BOZO | fijo | $25.000 | 35 min |
+| DEPILACIÓN CEJAS HILO | fijo | $25.000 | 30 min |
+| DEPILACIÓN BOZO HILO | fijo | $15.000 | 15 min |
+| CEJAS / BOZO HILO | fijo | $35.000 | Pendiente (suma individual: 45 min) |
+| LAMINADO DE CEJAS | fijo | $50.000 | 40 min |
+| LIFTING DE PESTAÑAS | fijo | $70.000 | 1 h |
+| PESTAÑAS PUNTO A PUNTO | fijo | $35.000 | 30 min |
+| CEJAS EN HENNA CON CERA | fijo | $40.000 | 40 min |
+| CEJAS EN HENNA CON HILO | fijo | $45.000 | 50 min |
 
 ### 3.6 Depilación
 
-| Servicio | Tipo | Precio |
-|---|---|---:|
-| DEPILACIÓN AXILAS | fijo | $15.000 |
-| DEPILACIÓN MEDIA PIERNA | desde | Desde $35.000 |
-| PIERNA COMPLETA | desde | Desde $48.000 |
-| BIKINI | desde | Desde $60.000 |
+| Servicio | Tipo | Precio | Duración |
+|---|---|---:|---:|
+| DEPILACIÓN AXILAS | fijo | $15.000 | 20 min |
+| DEPILACIÓN MEDIA PIERNA | desde | Desde $35.000 | 40 min |
+| PIERNA COMPLETA | desde | Desde $48.000 | 1 h |
+| BIKINI | desde | Desde $60.000 | 40 min |
 
 ### 3.7 Maquillaje y promociones
 
-| Servicio | Tipo | Precio | Notas |
-|---|---|---:|---|
-| MAQUILLAJE SOCIAL | desde | Desde $50.000 | — |
-| MAQUILLAJE QUINCEAÑERA / NOVIA | desde | Desde $150.000 | — |
-| MARTES 2X1 | promo | — | No incluye retiros |
+| Servicio | Tipo | Precio | Duración | Notas |
+|---|---|---:|---:|---|
+| MAQUILLAJE SOCIAL | desde | Desde $50.000 | Pendiente | — |
+| MAQUILLAJE QUINCEAÑERA / NOVIA | desde | Desde $150.000 | Pendiente | — |
+| MARTES 2X1 | promo | — | No aplica (promo) | No incluye retiros |
 
-> **Importante:** la hoja de precios **no incluye duraciones**. La duración es un dato que el
-> cliente cotiza caso por caso (el mensaje de reserva de ejemplo habla de “6 hrs” para un
-> combinado). El motor de reservas necesita una duración estándar por servicio y por adicional.
+> **Duraciones:** el cliente envió las duraciones estándar por servicio el **10 de noviembre de
+> 2026**. Se registran en la columna `Duración` de las tablas 3.2 a 3.7. Reglas de modelado:
+>
+> - La duración se expresa en minutos y se guarda como entero (`duration_min`).
+> - Los rangos (`5–7 h`) corresponden a servicios variables según el largo y el estado del
+>   cabello; se modelan como mínimo y máximo (`duration_min`, `duration_max`) y la agenda
+>   reserva el **límite superior**.
+> - Los adicionales de uñas se cobran y duran por uña; su duración depende del diseño y queda
+>   **pendiente de confirmar**.
+> - `CEJAS / BOZO HILO` no se informó por separado; la suma de sus dos servicios individuales
+>   da 45 min, valor sugerido a confirmar.
+> - `MAQUILLAJE SOCIAL` y `MAQUILLAJE QUINCEAÑERA / NOVIA` quedaron **pendientes**. Los
+>   paquetes que incluyen maquillaje sí tienen duración.
+> - Las promociones no tienen duración propia porque heredan la del servicio promocionado.
 
 ## 4. Profesionales y agenda
 
@@ -390,8 +403,9 @@ La hoja `LIQUIDACION` calcula:
    esas fechas tal cual; hay que reconstruirlas.
 2. **Texto libre:** cliente, servicio, precio y abono se escriben en la misma celda. No hay
    catálogo de servicios ni identificador de cliente.
-3. **Sin duraciones:** la agenda no guarda duración; la hoja de precios tampoco. Es el dato
-   faltante más importante para la reserva real.
+3. **Duraciones parciales:** la agenda y la hoja de precios originales no guardan duración. El
+   cliente envió las duraciones estándar el 10/11/2026; quedan pendientes los adicionales de
+   uñas y el maquillaje social/quinceañera/novia.
 4. **Sin leyenda de colores:** solo el negro está confirmado.
 5. **Meses incompletos:** diciembre está casi vacío; noviembre es parcial.
 6. **Nombres variables:** `NICO`/`NICOLLE`, `MARCE`/`MARCELA`, `ELIANA`/`eliana`.
@@ -453,7 +467,8 @@ La hoja `LIQUIDACION` calcula:
 - [ ] Confirmar si el auxilio de transporte aplica a todos o solo a algunos profesionales.
 - [ ] Confirmar la deducción de tintes y qué producto cuenta como gasto del profesional.
 - [ ] Confirmar el rol de YULIANA y ELIANA (¿profesionales, ayudantes, reemplazos?).
-- [ ] Entregar la duración estándar de cada servicio y adicional.
+- [x] Duraciones estándar por servicio — recibidas el 10/11/2026.
+- [ ] Completar la duración de los adicionales de uñas y del maquillaje social/quinceañera/novia.
 - [ ] Confirmar la política de cancelación, no-show y anticipación mínima.
 - [ ] Confirmar la ventana de recordatorios.
 - [ ] Confirmar el monto o porcentaje del abono.

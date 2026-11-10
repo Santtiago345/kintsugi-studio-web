@@ -175,7 +175,7 @@ documentación técnica en inglés y enlaces al mismo código, sin duplicar la i
 
 | Riesgo | Impacto | Mitigación |
 |---|---|---|
-| Faltan **duraciones** estándar por servicio | Alto: bloquea el motor de disponibilidad. | Modelar `duration_minutes` con valores por defecto por categoría, editables; pedir el dato al cliente en paralelo. |
+| Faltan **duraciones** de adicionales de uñas y de maquillaje social/quinceañera | Medio: afecta el cálculo de citas con adicionales o maquillaje suelto. | Usar una duración por defecto editable por categoría y completar el dato con el cliente. Las duraciones de los servicios base ya están recibidas. |
 | El cliente espera el CRM/ERP completo en ~1 mes | Alto | Entregar el núcleo operativo y presentar el roadmap por escrito. |
 | Ambigüedad 60 % por implementos, auxilio de transporte y meta diaria/semanal | Medio | Parametrizar por profesional y dejar valores por defecto; confirmar antes de automatizar nómina. |
 | Rol de YULIANA y ELIANA sin definir | Medio | Crear profesionales inactivos; no asignarles citas hasta confirmar. |
@@ -245,7 +245,8 @@ bonita. Es el corazón del producto y el mayor riesgo técnico.
 ## 10. Próxima acción inmediata
 
 1. **Cerrar el alcance del portal del cliente** (invitado vs cuenta) y del tablero diario.
-2. **Pedir al cliente** las duraciones por servicio, la leyenda de colores y el logo vectorial.
+2. **Pedir al cliente** los datos aún faltantes: duraciones de adicionales de uñas y de
+   maquillaje, leyenda de colores y logo vectorial.
 3. **Crear el esqueleto técnico** (`backend/`, `frontend/`, Docker, CI) y el primer ADR.
 4. **Implementar el dominio y el motor de disponibilidad** con pruebas desde el primer día.
 

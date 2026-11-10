@@ -347,7 +347,8 @@ Cada pantalla tiene una URL propia: `#home`, `#services`, `#booking-service`,
 
 ## 9. Pendientes
 
-- [ ] Confirmar la duración estándar de cada servicio y adicional con la clienta.
+- [x] Duración estándar de cada servicio confirmada con la clienta (10/11/2026).
+- [ ] Completar la duración de los adicionales de uñas y del maquillaje social/quinceañera/novia.
 - [ ] Reemplazar los placeholders por fotografía autorizada de antes/después.
 - [ ] Validar la leyenda de colores de la agenda distinta al negro.
 - [ ] Definir la política formal de cancelación, reprogramación y no-show.
