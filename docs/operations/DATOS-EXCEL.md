@@ -1,10 +1,10 @@
 # Datos operativos extraídos de los Excel
 
 > **Fuentes:** `agenda spt oct nov dic 2026.xlsx` y `OCTUBRE KINTSUGI 2026.xlsx`
-> (libros entregados por el cliente).
+> (libros entregados por el cliente, en `_local/kintsugi/datos/`).
 > **Método:** lectura con `openpyxl` de valores, fórmulas, celdas combinadas, formatos y
 > **colores de relleno**. El detalle celda a celda y los nombres de clientes se guardan solo en
-> `_local/analysis/` (fuera del repositorio) por privacidad.
+> `_local/kintsugi/datos/analysis/` (fuera del repositorio) por privacidad.
 > **Fecha del análisis:** 9 de noviembre de 2026.
 > **Actualización:** duraciones de servicios integradas el 10 de noviembre de 2026.
 >
@@ -478,9 +478,9 @@ La hoja `LIQUIDACION` calcula:
 
 ## 10. Archivos estructurados (solo locales)
 
-Los siguientes archivos se generan con `_local/tools/xlsx_extract.py` y viven en
-`_local/analysis/`. **No se versionan** porque contienen nombres de clientas y datos
-personales:
+Los siguientes archivos se generan con `_local/kintsugi/herramientas/xlsx_extract.py` y viven
+en `_local/kintsugi/datos/analysis/`. **No se versionan** porque contienen nombres de clientas
+y datos personales:
 
 | Archivo | Contenido |
 |---|---|
@@ -498,7 +498,7 @@ personales:
 Para regenerarlos:
 
 ```bash
-python _local/tools/xlsx_dump.py
-python _local/tools/xlsx_extract.py
-python _local/tools/make_service_tables.py
+python _local/kintsugi/herramientas/xlsx_dump.py
+python _local/kintsugi/herramientas/xlsx_extract.py
+python _local/kintsugi/herramientas/make_service_tables.py
 ```

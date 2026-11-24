@@ -22,10 +22,10 @@
 | Descubrimiento con el cliente | **Cerrado** (respuestas, Excel, plantillas de WhatsApp). |
 | Alcance | **Definido por fases** (MVP, Fase 2, roadmap). |
 | Arquitectura y stack | **Decididos** (Opción B: Django + DRF + Next.js + PostgreSQL). |
-| Repositorio del producto | Creado; 4 commits; **solo documentación**, sin código. |
+| Repositorio del producto | Creado; documentación y prototipo, sin código de aplicación. |
 | Implementación | **No iniciada**. |
-| Entregables del curso | Borradores avanzados en inglés en `_local/entregables/` (propuesta, Workshop 1, Workshop 2). |
-| Datos sensibles | Analizados y guardados **solo** en `_local/analysis/` (fuera de Git). |
+| Entregables del curso | Borradores avanzados en inglés en `_local/curso/entregables/` (propuesta, Workshop 1, Workshop 2). |
+| Datos sensibles | Analizados y guardados **solo** en `_local/kintsugi/datos/analysis/` (fuera de Git). |
 
 **En una frase:** el "qué" y el "con qué" están resueltos; falta cerrar unos pocos datos
 bloqueantes del cliente y convertir el diseño en software.
@@ -53,7 +53,8 @@ Tres frentes de producto:
 **Identidad obligatoria:** negro `#080808`, oro `#C9A04A`, champagne `#F4E2B5`, blanco perla
 `#FFFFFF`, grafito `#292526`; Montserrat (funcional), Cormorant Garamond (editorial),
 Great Vibes (acento). Proporción orientativa 50/25/20/5. Ver
-[`../docs/PROYECTO-KINTSUGI.md`](PROYECTO-KINTSUGI.md) y el manual de marca en `_local/md/`.
+[`PROYECTO-KINTSUGI.md`](PROYECTO-KINTSUGI.md) y el manual de marca en
+`_local/kintsugi/marca/`.
 
 ---
 
@@ -137,9 +138,10 @@ profesional (su agenda e historial), cliente (sus datos en lectura).
 | Ubicación | Qué contiene | Se versiona |
 |---|---|---|
 | `kintsugi-studio-web/` | Documentación del producto, y luego `backend/`, `frontend/`, `.github/`. | **Sí** |
-| `_local/entregables/` | Propuesta, Workshop 1 y Workshop 2 (inglés, para Classroom). | **No** |
-| `_local/md/`, `_local/pdf/` | Material de la asignatura. | **No** |
-| `_local/analysis/` | CSV con nombres de clientas y datos personales. | **No** |
+| `_local/curso/` | Material de la asignatura, planificación y entregables. | **No** |
+| `_local/curso/entregables/` | Propuesta, Workshop 1 y Workshop 2 (inglés, para Classroom). | **No** |
+| `_local/kintsugi/datos/analysis/` | CSV con nombres de clientas y datos personales. | **No** |
+| `_local/kintsugi/marca/` | Manual de identidad visual. | **No** |
 
 **Regla de oro:** nada de `_local/` se copia al repositorio del producto; el repo contiene solo
 producto. Los PDFs del curso se suben a Classroom.
