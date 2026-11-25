@@ -51,16 +51,25 @@ Los tres reutilizan [`reusable-checks.yml`](../../.github/workflows/reusable-che
 | `backend` | instalar dependencias → `ruff check` → `pytest`. |
 | `frontend` | `npm ci` → `next lint` → `next build` → `vitest run`. |
 
-## 4. Protección de ramas
+## 4. Protección de ramas (rulesets activos)
 
-Recomendación aplicada en GitHub (Settings → Branches):
+| Ruleset | Rama | Reglas |
+|---|---|---|
+| `protect-main` | `main` | PR + 1 aprobación, checks requeridos, bloqueo de borrado y force push. |
+| `protect-test` | `test` | PR + 1 aprobación, checks requeridos, bloqueo de borrado y force push. |
+| `protect-develop` | `develop` | Bloqueo de borrado y force push; push directo permitido para iterar. |
 
-- `main`: requiere PR con al menos una revisión y que el check de CI pase.
-- `test`: requiere PR y que el check de CI pase.
-- `develop`: sin restricción de push directo para iterar rápido.
+Checks requeridos:
 
-> Si el plan de GitHub del repositorio no permite checks obligatorios en repositorios privados,
-> se mantiene al menos la regla de equipo: **nadie hace push directo a `main` ni a `test`**.
+- `main`: `Checks / Backend checks`, `Checks / Frontend checks`, `Deploy to production`.
+- `test`: `Checks / Backend checks`, `Checks / Frontend checks`, `Deploy to test`.
+
+`strict_required_status_checks_policy` está activo: la rama debe estar actualizada antes de
+mergear. Si el equipo necesita iterar más rápido en `test`, se puede desactivar solo en ese
+ruleset.
+
+> **Aprobaciones:** `main` y `test` requieren una revisión cruzada. El autor del PR no puede
+> aprobar su propio PR; se necesita al otro integrante o un bypass de administrador.
 
 ## 5. Flujo de trabajo diario
 
