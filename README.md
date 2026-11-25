@@ -5,7 +5,7 @@ Sitio web oficial, reserva de citas y sistema de gestión (**CRM + ERP ligero**)
 
 **Equipo:** Santiago Neuta · David Mateo Ballesteros
 **Cliente:** Kintsugi Studio
-**Estado:** descubrimiento cerrado · alcance y arquitectura definidos · prototipo de interfaz disponible · implementación pendiente
+**Estado:** descubrimiento cerrado · alcance y arquitectura definidos · esqueleto `backend/` + `frontend/` y CI/CD listos · dominio en implementación
 
 ---
 
@@ -201,9 +201,41 @@ El cliente espera el núcleo operativo en aproximadamente un mes. El roadmap com
 │   ├── architecture/  # Decisiones de stack y arquitectura
 │   ├── design/        # Sistema visual y prototipo
 │   └── assets/        # Capturas y recursos de documentación
-├── frontend/          # App Next.js (planificado); prototipo en frontend/prototype
-├── backend/           # API REST, dominio, base de datos y pruebas (planificado)
-└── .github/           # CI/CD y plantillas de colaboración (planificado)
+├── backend/           # API Django + DRF (esqueleto: health endpoint y pruebas)
+├── frontend/          # App Next.js + Tailwind (esqueleto); prototipo en frontend/prototype
+├── docker-compose.yml # Postgres + backend para desarrollo local
+├── .env.example       # Variables de entorno de referencia
+└── .github/           # Workflows de CI/CD por rama y entorno
+```
+
+### Ramas, entornos y CI/CD
+
+| Rama | Entorno |
+|---|---|
+| `main` | producción |
+| `develop` | desarrollo |
+| `test` | pruebas |
+
+Flujo: `feat/* → develop → test → main`. Detalle en
+[`docs/architecture/GIT-FLOW-CICD.md`](docs/architecture/GIT-FLOW-CICD.md).
+
+#### Ejecutar en local
+
+```bash
+# Backend (sin Docker, con SQLite)
+cd backend
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements-dev.txt
+python manage.py migrate
+python manage.py runserver                          # http://localhost:8000/api/v1/health/
+
+# Frontend
+cd frontend
+npm install
+npm run dev                                         # http://localhost:3000
+
+# O con Docker (Postgres + backend)
+docker compose up --build
 ```
 
 ### Documentación
@@ -282,7 +314,8 @@ and history), client (own data in read-only mode).
 Django Admin/Unfold, with Redis/Huey for background jobs, S3-compatible storage, Google
 Calendar, WhatsApp Cloud API, and a payment gateway adapter.
 
-**Status:** discovery closed; scope and architecture defined; implementation not started.
+**Status:** discovery closed; scope and architecture defined; `backend/` + `frontend/` skeleton
+and CI/CD ready; domain implementation in progress.
 
 ### Repository layout
 
@@ -300,10 +333,15 @@ Calendar, WhatsApp Cloud API, and a payment gateway adapter.
 │   ├── architecture/  # Stack and architecture decisions
 │   ├── design/        # Visual system, screens, and prototype
 │   └── assets/        # Documentation screenshots and resources
-├── frontend/          # Next.js app (planned); prototype in frontend/prototype
-├── backend/           # REST API, domain logic, database, and tests (planned)
-└── .github/           # CI/CD and collaboration templates (planned)
+├── backend/           # Django + DRF API (skeleton: health endpoint and tests)
+├── frontend/          # Next.js + Tailwind app (skeleton); prototype in frontend/prototype
+├── docker-compose.yml # Postgres + backend for local development
+├── .env.example       # Reference environment variables
+└── .github/           # CI/CD workflows per branch and environment
 ```
+
+**Branches:** `main` (production), `develop`, `test`; flow `feat/* → develop → test → main`.
+See [`docs/architecture/GIT-FLOW-CICD.md`](docs/architecture/GIT-FLOW-CICD.md).
 
 ### Roadmap
 

@@ -1,0 +1,23 @@
+name: CI/CD — production
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  checks:
+    name: Checks
+    uses: ./.github/workflows/reusable-checks.yml
+
+  deploy-prod:
+    name: Deploy to production
+    needs: checks
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy to production environment
+        run: |
+          echo "TODO: deploy backend and frontend to the 'production' environment."
+          echo "Requires approval and production secrets (DATABASE_URL, VERCEL_TOKEN, RAILWAY_TOKEN)."
