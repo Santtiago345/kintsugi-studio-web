@@ -55,8 +55,8 @@ Los tres reutilizan [`reusable-checks.yml`](../../.github/workflows/reusable-che
 
 | Ruleset | Rama | Reglas |
 |---|---|---|
-| `protect-main` | `main` | PR + 1 aprobación, checks requeridos, bloqueo de borrado y force push. |
-| `protect-test` | `test` | PR + 1 aprobación, checks requeridos, bloqueo de borrado y force push. |
+| `protect-main` | `main` | PR obligatorio (0 aprobaciones por ahora), checks requeridos, bloqueo de borrado y force push. |
+| `protect-test` | `test` | PR obligatorio (0 aprobaciones por ahora), checks requeridos, bloqueo de borrado y force push. |
 | `protect-develop` | `develop` | Bloqueo de borrado y force push; push directo permitido para iterar. |
 
 Checks requeridos:
@@ -68,8 +68,9 @@ Checks requeridos:
 mergear. Si el equipo necesita iterar más rápido en `test`, se puede desactivar solo en ese
 ruleset.
 
-> **Aprobaciones:** `main` y `test` requieren una revisión cruzada. El autor del PR no puede
-> aprobar su propio PR; se necesita al otro integrante o un bypass de administrador.
+> **Aprobaciones:** por decisión del equipo, `main` y `test` exigen PR pero **no** una
+> aprobación obligatoria (valor 0). Cuando los dos integrantes estén activos, se puede subir a 1
+> para forzar revisión cruzada sin cambiar el resto del flujo.
 
 ## 5. Flujo de trabajo diario
 
