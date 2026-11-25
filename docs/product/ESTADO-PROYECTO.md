@@ -218,7 +218,7 @@ Duración objetivo: **4–6 semanas** de trabajo parcial de dos personas.
 
 | Etapa | Entregable | Criterio de cierre |
 |---|---|---|
-| **S0. Cimientos** | Esqueleto `backend/` + `frontend/`, Docker Compose, `.env.example`, CI en GitHub Actions, ADRs. | `docker compose up` levanta API + Postgres; CI corre lint y pruebas. |
+| **S0. Cimientos** | Esqueleto `backend/` + `frontend/`, Docker Compose, `.env.example`, CI en GitHub Actions, ADRs. | ✓ Hecho (24/11/2026): esqueleto, Compose, `.env.example` y CI listos. |
 | **S1. Dominio y catálogo** | Modelos `Service`, `ServiceCategory`, `Professional`, `ProfessionalService`, `Schedule`, `ScheduleException`; seed con los 72 servicios. | Catálogo servido por API y visible en el sitio. |
 | **S2. Agenda y disponibilidad** | `Appointment`, `AppointmentItem`, motor de disponibilidad, bloqueo temporal, prevención de solapamientos. | Tests de concurrencia; no se vende dos veces el mismo bloque. |
 | **S3. Reserva pública** | Flujo de reserva (servicio → profesional → fecha/hora → datos → confirmación `pending`). | Un visitante completa una reserva sin intervención del salón. |
@@ -237,7 +237,9 @@ bonita. Es el corazón del producto y el mayor riesgo técnico.
 - **Identificadores:** `RF-01`, `RNF-01`, `BR-01`, `US-01`, `AC-01`; no se renumeran.
 - **Nombres:** clases y tablas iguales en UML, ER y código (`Appointment`, `appointment`).
 - **Commits:** convencionales (`feat:`, `fix:`, `docs:`, `test:`, `chore:`).
-- **Ramas:** `main` estable; trabajo en `feat/...`, `fix/...`, `docs/...`.
+- **Ramas:** `main` (producción), `develop`, `test`; trabajo en `feat/...`, `fix/...`, `docs/...`.
+  Flujo `feat/* → develop → test → main`. Detalle en
+  [`docs/architecture/GIT-FLOW-CICD.md`](../architecture/GIT-FLOW-CICD.md).
 - **Pruebas:** pytest; cobertura de dominio ≥ 70 %; CI obligatorio en cada PR.
 - **Seguridad:** sin secretos ni datos personales en el repo; `.env.example` documentado.
 - **Diagramas:** Mermaid dentro de los documentos, versionados como texto.
@@ -249,7 +251,8 @@ bonita. Es el corazón del producto y el mayor riesgo técnico.
 1. **Cerrar el alcance del portal del cliente** (invitado vs cuenta) y del tablero diario.
 2. **Pedir al cliente** los datos aún faltantes: duraciones de adicionales de uñas y de
    maquillaje, leyenda de colores y logo vectorial.
-3. **Crear el esqueleto técnico** (`backend/`, `frontend/`, Docker, CI) y el primer ADR.
-4. **Implementar el dominio y el motor de disponibilidad** con pruebas desde el primer día.
+3. ~~Crear el esqueleto técnico~~ — **hecho**: `backend/`, `frontend/`, Docker y CI en ramas
+   `main`/`develop`/`test`.
+4. **Implementar el dominio y el motor de disponibilidad** (S1–S2) con pruebas desde el primer día.
 
 > Este documento debe revisarse al cerrar cada etapa para mantener una sola versión de la verdad.

@@ -48,6 +48,7 @@ es el [`README.md`](../README.md) de la raíz.
 | Documento | Contenido |
 |---|---|
 | [Decisión de stack](architecture/DECISION-STACK.md) | Alternativas evaluadas, matriz de decisión, decisión final, costos y configuración. |
+| [Ramas, entornos y CI/CD](architecture/GIT-FLOW-CICD.md) | Modelo de ramas `main`/`develop`/`test`, entornos de GitHub y pipeline de CI/CD. |
 
 ## Documentos previstos
 

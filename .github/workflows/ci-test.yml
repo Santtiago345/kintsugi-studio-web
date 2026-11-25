@@ -1,0 +1,23 @@
+name: CI — test
+
+on:
+  push:
+    branches: [test]
+  pull_request:
+    branches: [test]
+
+jobs:
+  checks:
+    name: Checks
+    uses: ./.github/workflows/reusable-checks.yml
+
+  deploy-test:
+    name: Deploy to test
+    needs: checks
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - name: Deploy to test environment
+        run: |
+          echo "TODO: deploy backend (Railway/Render) and frontend (Vercel) to the 'test' environment."
+          echo "Wire secrets (DATABASE_URL, VERCEL_TOKEN, RAILWAY_TOKEN) as environment secrets."
