@@ -1,0 +1,12 @@
+name: CI — develop
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  checks:
+    name: Checks
+    uses: ./.github/workflows/reusable-checks.yml

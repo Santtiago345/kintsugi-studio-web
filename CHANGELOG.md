@@ -13,6 +13,11 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 - Duraciones estándar por servicio en la columna `Duración` del catálogo
   (`docs/operations/DATOS-EXCEL.md`), recibidas del cliente el 10/11/2026.
 - `LICENSE`, `CONTRIBUTING.md` y `.editorconfig`.
+- Esqueleto técnico: backend Django/DRF (health endpoint, `pytest`, `ruff`), frontend
+  Next.js/Tailwind (home, `vitest`), `docker-compose.yml` y `.env.example`.
+- Ramas de larga duración `develop` y `test`, flujo `feat/* → develop → test → main` y
+  documentación en `docs/architecture/GIT-FLOW-CICD.md`.
+- Workflows de CI/CD: `ci-develop.yml`, `ci-test.yml`, `ci-prod.yml` y `reusable-checks.yml`.
 
 ### Cambiado
 

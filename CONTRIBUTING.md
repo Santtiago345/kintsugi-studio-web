@@ -14,13 +14,17 @@ Guía breve para mantener el repositorio consistente entre los dos integrantes d
 
 | Rama | Uso |
 |---|---|
-| `main` | Versión estable y desplegable. |
+| `main` | Versión estable y desplegable (producción). |
+| `develop` | Integración de desarrollo. |
+| `test` | Validación previa a producción (entorno `test`). |
 | `feat/<tema>` | Nueva funcionalidad. |
 | `fix/<tema>` | Corrección de errores. |
 | `docs/<tema>` | Cambios de documentación. |
 | `chore/<tema>` | Mantenimiento, dependencias o configuración. |
 
-Los cambios llegan a `main` mediante pull request con al menos una revisión cruzada.
+Flujo: `feat/* → develop → test → main`. Los cambios llegan mediante pull request con CI verde;
+`main` y `test` requieren al menos una revisión cruzada. Detalle en
+[`docs/architecture/GIT-FLOW-CICD.md`](docs/architecture/GIT-FLOW-CICD.md).
 
 ## 3. Commits
 

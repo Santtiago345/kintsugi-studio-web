@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #080808;
+  --graphite: #292526;
+  --gold: #c9a04a;
+  --champagne: #f4e2b5;
+  --pearl: #ffffff;
+  --muted: #a99f95;
+}
